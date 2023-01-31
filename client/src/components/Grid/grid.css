@@ -1,0 +1,13 @@
+.err{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor{
+    display: flex
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+    }
