@@ -18,19 +18,19 @@ route.get("/notification/:infoPago", async(req,res)=>{
         const {infoPago} = req.params;
 
 
-        if(!infoPago){
+        if(infoPago === null){
 
             return res.status(400).send("No User Id")
         };
 
-        console.log("id0", infoPago);
+        console.log("id back ruta ticket", infoPago);
         
         const user = await User.findByPk(infoPago);
-
-        const ticket = await getTickets(Number(infoPago));
-
-
-        if(typeof ticket === "string"){
+        
+        const ticket = await getTickets(infoPago);
+        // console.log("acaaaa llega ?");   
+        
+        if(typeof ticket === "string" || !infoPago){
 
             // console.log("tipeof ticket", typeof ticket === "string");
             return res.status(400).send("The user has not purchased tickets recently")
@@ -158,12 +158,12 @@ route.get("/:userId", async(req,res)=>{
         
         const {userId} = req.params;
 
-        if(!infoPago){
+        if(userId === null || !userId){
 
             return res.status(400).send("No User Id")
         };
 
-        const ticket = await getTickets(Number(userId));
+        const ticket = await getTickets(userId);
 
         if(typeof ticket === "string"){
 

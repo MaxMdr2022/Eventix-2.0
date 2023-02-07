@@ -1,4 +1,4 @@
-const { User } = require("../db");
+const { User,Review, Event, Ticket } = require("../db");
 const fs = require("fs");
 // const { isAdmin } = require('../middleware');
 
@@ -12,24 +12,18 @@ const getUser = async (req, res, next) => {
       const userDetail = await User.findByPk(idUser, {
         include: [
           {
-            model: Post,
-            attributes: { exclude: ["userId"] },
+            model: Review,
+            // attributes: { exclude: ["userId"] },
           },
           {
-            model: Comment,
-            attributes: { exclude: ["userId"] },
+            model: Event,
+            // attributes: { exclude: ["userId"] },
           },
           {
-            model: Like,
-            attributes: { exclude: ["userId"] },
-            include: [Post, Comment]
-          },
-          {
-            model: Report,
-          },
-          {
-            model: Favorite,
-          },
+            model: Ticket,
+            // attributes: { exclude: ["userId"] },
+            // include: [Post, Comment]
+          }
         ],
       });
       return userDetail
@@ -55,9 +49,9 @@ const getUser = async (req, res, next) => {
 const logintUser = async (req, res, next) => {
   const { nickname, picture, name, email } = req.body;
 
-  let arrayName = name.split(" ");
-  const firstName = arrayName.shift();
-  const lastName = arrayName.join(" ");
+  // let arrayName = name.split(" ");
+  // const firstName = arrayName.shift();
+  // const lastName = arrayName.join(" ");
 
   try {
     const [user, boolean] = await User.findOrCreate({
@@ -65,12 +59,13 @@ const logintUser = async (req, res, next) => {
       defaults: {
         nick: nickname,
         image: picture,
-        first_name: firstName,
-        last_name: lastName,
+        first_name: "-",
+        last_name: "-",
         isAdmin: false
       },
     });
 
+    // console.log("user back: ", user);
     res.json({
       user: user,
       isCreated: boolean,
@@ -81,29 +76,39 @@ const logintUser = async (req, res, next) => {
 };
 
 
-const updateUser = (req, res, next) => {
+const updateUser = async(req, res, next) => {
   const { idUser } = req.params;
-  const { first_name, last_name, about, role, twitter, github, portfolio, linkedin } =
-    req.body;
+  const { first_name, last_name, image, nick, isAdmin, isBanned } = req.body;
 
-  return User.update(
-    {
-      first_name,
-      last_name,
-      about,
-      role,
-      twitter,
-      github,
-      portfolio,
-      linkedin
-    },
-    {
-      where: { id: idUser },
-      raw: true,
-    }
-  )
-    .then((updatedUser) => res.json({ Update: Boolean(parseInt(updatedUser)) }))
-    .catch((error) => next(error));
+  // console.log("id", idUser);
+  // console.log("nom ", first_name, "apell ", last_name, "ima", image, "nic", nick);
+  try {
+    
+
+    const user = await User.update(
+      {
+        first_name,
+        last_name,
+        image,
+        nick, 
+        isAdmin, 
+        isBanned
+      },
+      {
+        where: { id: idUser },
+      }
+    );
+
+    res.status(200).json(user);
+
+  } catch (error) {
+    
+    // res.status(500).send(error.message);
+    next(error)
+  }
+  
+    // .then((updatedUser) => res.json({ Update: Boolean(parseInt(updatedUser)) }))
+    // .catch((error) => next(error));
 };
 
 const adminBanUser = async (req, res, next) => {
