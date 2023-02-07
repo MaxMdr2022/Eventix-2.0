@@ -17,7 +17,7 @@ export const Leftbar = styled.div`
 margin-left: 5vh;
 height: 60px;
 border-radius: 5px;
-color:black;
+color:white;
 align-items: center;
 display: flex;
 width: 30vw;

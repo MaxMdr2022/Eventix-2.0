@@ -27,11 +27,15 @@ export const GET_REVIEW = "GET_REVIEW";
 
 export const GET_USERS = "GET_USERS";
 
-export const CREATE_USER= "CREATE_USER"
+export const CREATE_USER= "CREATE_USER";
 
-export const GET_USER_EVENTS = "GET_USER_EVENTS"
+export const GET_USER_EVENTS = "GET_USER_EVENTS";
 
-export const GET_USER_REVIEWS = "GET_USER_REVIEWS"
+export const GET_USER_REVIEWS = "GET_USER_REVIEWS";
+
+export const USER_UPDATE = "USER_UPDATE";
+
+export const GET_USER_ID ="GET_USER_ID";
 //-------------------------------------------------
  const URL = "http://localhost:3001";
 //-------------------------------------------------
@@ -328,7 +332,7 @@ export const payCrypto = (data) =>{
   return async function (dispatch){
 
     try {
-       console.log("action", data);
+      //  console.log("action", data);
       
       const url = await axios.post(`paycrypto/create-charge`,data );
 
@@ -397,3 +401,40 @@ export const notificationPayment = (infoPago) => {
 };
 
 
+export const userUpdate = (id, info) => {
+  return async function (dispatch){
+    try {
+    
+      const user = await axios.put(`users/${id}` , info)
+
+      // console.log("userUpdate action: ", user.data);
+
+      dispatch({
+        type: USER_UPDATE,
+        payload: user.data
+      })
+
+    } catch (error) {
+      dispatch({
+
+        type: ERROR,
+        payload: error.message
+      })
+    }
+  }
+};
+
+export function getUsersid(id) {
+  return (dispatch) => {
+    axios.get(`/users/` + id)
+      .then(response => {
+        dispatch({
+          type: GET_USER_ID,
+          payload: response.data
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
+};

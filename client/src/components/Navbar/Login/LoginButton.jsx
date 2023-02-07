@@ -8,7 +8,7 @@ import {CiLogin} from 'react-icons/ci';
 //import Modal from "react-modal";
 
 
-export const LoginButton = ({islog}) => {
+export const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
   // const history = useHistory();
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ export const LoginButton = ({islog}) => {
   // `;
 
   function accountHandler() {
-    isAuthenticated ? openModal() : loginWithRedirect();
+    return isAuthenticated ? openModal() : loginWithRedirect();
     
   }
 
@@ -40,34 +40,70 @@ export const LoginButton = ({islog}) => {
   function closeModal() {
     setIsOpen(false);
   }
-  console.log(user)
-  return (
+  // console.log(user)
+
+
+  return(
     <div>
 
-      {!isAuthenticated ? (<IconButton  onClick={() => accountHandler()}>
-            <CiLogin style={{ fontSize: 45, color: "white" }} color="primary"/>
-          </IconButton>) : (
+      {!isAuthenticated ? (
+          
+        <IconButton  onClick={() => accountHandler()}>
+
+          <CiLogin style={{ fontSize: 45, color: "white" }} color="primary"/>
+
+        </IconButton>
+
+      ):(
+
         <div>
-          <IconButton onClick={() => accountHandler()}>{islog()}
-              <Avatar alt="p" src={user?.picture} size="lg"/>
+          <IconButton onClick={() => accountHandler()}>
+            
+            <Avatar alt="p" src={user?.picture} size="lg"/>
+
           </IconButton>
+
           <IconButton  onClick={() => logout()}>
+
             <CiLogin style={{ fontSize: 45, color: "white" }} />
+
           </IconButton>
+
         </div>
+
       )}
-      <Modal
-      style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+
+
+      {/*<Modal
+        style={{display:'flex',alignItems:'center',justifyContent:'center'}}
         open={modalIsOpen}
         onClose={closeModal}
       >
         <div>
-        <img src={user?.picture} alt=''/>
-        <h3>{user?.name}</h3>
-        <p>{user?.email}</p>
-        <a href="/perfil">Purchase history</a>
+          <img src={user?.picture} alt=''/>
+          <h3>{user?.name}</h3>
+          <p>{user?.email}</p>
+          <a href="/perfil">Purchase history</a>
         </div>
-      </Modal>
+
+      </Modal>*/}
     </div>
   );
 };
+
+
+
+// user {
+
+//   isCreated : false,
+//   user : {
+//     // email: "drum_94@live.com.ar"
+//     // first_name: "Administrador"
+//     // id: "51d03316-92d0-4e8f-b470-702da75d0384"
+//     // image: "https://t4.ftcdn.net/jpg/04/75/00/99/360_F_475009987_zwsk4c77x3cTpcI3W1C1LU4pOSyPKaqi.jpg"
+//     // isAdmin: true
+//     // last_name: "Maxi"
+//     // nick: "Eventix Administrador"
+//   }
+
+// }

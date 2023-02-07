@@ -17,7 +17,7 @@ export default function Detail() {
   const eventShowed = useSelector(state => state.events);
   const url = useSelector( s => s.payCryptoURL);
   const userId = useSelector(s => s.user);
-  console.log("userid detaill", userId)
+  // console.log("userid detaill", userId)
   
   const history = useHistory()
   const dispatch = useDispatch()
@@ -30,7 +30,7 @@ export default function Detail() {
   const updateComponent = (message) => {
     setReload(message)
   }
-  console.log(reload)
+  // console.log(reload)
   useEffect(() => {
     dispatch(searchEventById(id))
     setReload(false)
