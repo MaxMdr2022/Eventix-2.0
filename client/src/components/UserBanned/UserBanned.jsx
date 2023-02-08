@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function userBanned (){
+export default function UserBanned (){
 
 
     return (

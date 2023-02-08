@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {  useHistory, useParams } from 'react-router-dom';
 import { userUpdate } from "../../../Redux/actions";
 import Navbar from "../../Navbar/Navbar";
+import EventosDashBoard from "./EventosDashBoard";
+import TicketDashBoard from "./TicketDashBoard";
 
 export default function UserDashBoard (){
 
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const users = useSelector(state => state.users);
     const user = useSelector(s => s.user);
@@ -20,8 +23,6 @@ export default function UserDashBoard (){
         last_name: "",
         image: "", 
         nick: "",
-        isAdmin: false,
-        isBanned: false
     });
 
     const handleChange = (e)=> {
@@ -40,40 +41,60 @@ export default function UserDashBoard (){
         e.preventDefault();
 
 
-        const usuario = {
+        const usuarioModificado = {
 
             first_name: userEdit.first_name.length > 0 ? userEdit.first_name : usuario[0].first_name ,
             last_name: userEdit.last_name.length > 0 ? userEdit.last_name : usuario[0].last_name,
             image: userEdit.image.length > 0 ? userEdit.image :usuario[0].image, 
             nick: userEdit.nick.length > 0 ? userEdit.nick : usuario[0].nick,
-            isAdmin: userEdit.isAdmin.length > 0 ? userEdit.isAdmin : usuario[0].isAdmin,
-            isBanned: userEdit.isBanned.length > 0 ? userEdit.isBanned : usuario[0].isBanned,
+            // isAdmin: userEdit.isAdmin.length > 0 ? userEdit.isAdmin : usuario[0].isAdmin,
+            // isBanned: userEdit.isBanned.length > 0 ? userEdit.isBanned : usuario[0].isBanned,
         };
 
-        dispatch(userUpdate(id, usuario));
+        dispatch(userUpdate(id, usuarioModificado));
         alert("Perfil modificado con exito.");
     
+    };
+
+    const handleIsAdmin = (e)=> {
+
+        e.preventDefault();
+
+        dispatch(userUpdate(id, {isAdmin: true}));
+        window.location.reload();
+    };
+
+    const handleRemoveAdmin= (e)=> {
+
+        e.preventDefault();
+
+        dispatch(userUpdate(id, {isAdmin: false}));
+   
+        window.location.reload();
     };
 
     const handleIsBanned = (e)=> {
 
         e.preventDefault();
 
-        console.log("e banned:", e)
-
-        // const usuario = {
-
-        //     // first_name: userEdit.first_name.length > 0 ? userEdit.first_name : usuario[0].first_name ,
-        //     // last_name: userEdit.last_name.length > 0 ? userEdit.last_name : usuario[0].last_name,
-        //     // image: userEdit.image.length > 0 ? userEdit.image :usuario[0].image, 
-        //     // nick: userEdit.nick.length > 0 ? userEdit.nick : usuario[0].nick,
-        //     // isAdmin: userEdit.isAdmin.length > 0 ? userEdit.isAdmin : usuario[0].isAdmin,
-        //     isBanned: e,
-        // };
-
-        dispatch(userUpdate(id, {isBanned: e}));
+        dispatch(userUpdate(id, {isBanned: true}));
+        window.location.reload();
     };
 
+    const handleRemoveBanned = (e)=> {
+
+        e.preventDefault();
+
+        dispatch(userUpdate(id, {isBanned: false}));
+   
+        window.location.reload();
+    };
+
+    const cancel = (e) => {
+
+        e.preventDefault();
+        history.push("/admindashboard");
+    };
 
     if(!user.user){
 
@@ -104,50 +125,75 @@ export default function UserDashBoard (){
 
             {usuario.length > 0  ? usuario.map(e => {
 
+                return (
 
-                <div>
-                    <h2>Editar Perfil</h2>
+                    <div>
+                        <h2>Editar Perfil</h2>
 
-                    <p>e-mail: {e.email}</p>
+                        <p>e-mail: {e.email}</p>
 
-                    <form >
-                        <div>
-                            <label>Nombre: </label>
-                            <input placeholder={e.first_name} name={"first_name"} type="text" value={userEdit.first_name} onChange={(e)=>handleChange(e)}  />
-                        </div>
+                        <form >
+                            <div>
+                                <label>Nombre: </label>
+                                <input placeholder={e.first_name} name={"first_name"} type="text" value={userEdit.first_name} onChange={(e)=>handleChange(e)}  />
+                            </div>
 
-                        <div>
-                            <label>Apellido: </label>
-                            <input placeholder={e.last_name} name={"last_name"} type="text" value={userEdit.last_name} onChange={(e)=>handleChange(e)} />
-                        </div>
+                            <div>
+                                <label>Apellido: </label>
+                                <input placeholder={e.last_name} name={"last_name"} type="text" value={userEdit.last_name} onChange={(e)=>handleChange(e)} />
+                            </div>
 
-                        <div>
-                            <label>Nick: </label>
-                            <input placeholder={e.nick} name={"nick"} type="text" value={userEdit.nick} onChange={(e)=>handleChange(e)} />
-                        </div>
-                        <div>
-                            <label>Admin: </label>
-                            <input placeholder={e.isAdmin ? "true" : "false"} name={"isAdmin"} type="text" value={userEdit.isAdmin} onChange={(e)=>handleChange(e)} />
-                        </div>
-                        <div>
-                            <label>Ban: </label>
-                            {
-                                e.isBanned ? <button onClick={handleIsBanned(false)}>Desbanear Usuario</button> : <button onClick={handleIsBanned(true)}>Banear Usuario</button>
-                                /*e.isBanned ? <input name={"isBanned"} type="button" value={true} onClick={(e)=>handleIsBanned(e)} /> : <input name={"isBanned"} type="button" value={userEdit.isBanned} onClick={(e)=>handleChange(e)} />*/
+                            <div>
+                                <label>Nick: </label>
+                                <input placeholder={e.nick} name={"nick"} type="text" value={userEdit.nick} onChange={(e)=>handleChange(e)} />
+                            </div>
+                            <div>
+                                {e.email === "drum_94@live.com.ar" ? null :
+
+                                    <div>
+                                        <label>Admin: </label>
+                                        {
+                                            e.isAdmin ? <button onClick={(e)=>handleRemoveAdmin(e)}>Quitar Admin</button> : <button onClick={(e)=>handleIsAdmin(e)}>Asignar Admin</button>
+                                        }
+                                    </div>
+                                }
+                                
+                            </div>
+                            <div>
+                                {e.email === "drum_94@live.com.ar" ? null :
+
+
+                                    <div>
+                                        <label>Ban: </label>
+                                        {
+                                            e.isBanned ? <button onClick={(e)=>handleRemoveBanned(e)}>Desbanear Usuario</button> : <button onClick={(e)=>handleIsBanned(e)}>Banear Usuario</button>
+                                        }
+                                    </div>
+                                }
+                                
+                                
+                            </div>
+                            <div>
+                                <label>Imagen: </label>
+                                <img src={e.image} alt='' />
+                                <input placeholder={e.image} name={"image"} type="text" value={userEdit.image} onChange={(e)=>handleChange(e)} />
+                            </div>
+
+                            {e.email === "drum_94@live.com.ar" ? null :
+
+                                <div>
+
+                                    <button type="submit" onClick={(e)=>handleSubmit(e)}>Guardar</button>
+                                    <button onClick={(e)=>cancel(e)}>Cancelar</button>
+                                </div>
                             }
                             
-                        </div>
-                        <div>
-                            <label>Imagen: </label>
-                            <img src={e.image} alt='' />
-                            <input placeholder={e.image} name={"image"} type="text" value={userEdit.image} onChange={(e)=>handleChange(e)} />
-                        </div>
-
-                        <button type="submit" onClick={(e)=>handleSubmit(e)}>Guardar</button>
-                        <button onClick={(e)=>cancel(e)}>Cancelar</button>
-                    </form>
-                    
-                </div>
+                            
+                        </form>
+                        
+                    </div>
+                )
+                
 
                 })         
                 : 
@@ -155,6 +201,18 @@ export default function UserDashBoard (){
                 <p>No se encuantra Usuario ...</p>
             }
 
+            <div>
+                <TicketDashBoard idUser={id}/>
+
+            </div>
+
+            <div>
+                <EventosDashBoard idUser={id} />
+            </div>
+
+            <div>
+                <h1>Comentarios</h1>
+            </div>
         </div>
     )
 

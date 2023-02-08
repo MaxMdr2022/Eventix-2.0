@@ -36,6 +36,8 @@ export const GET_USER_REVIEWS = "GET_USER_REVIEWS";
 export const USER_UPDATE = "USER_UPDATE";
 
 export const GET_USER_ID ="GET_USER_ID";
+
+export const EVENT_UPDATE = "EVENT_UPDATE";
 //-------------------------------------------------
  const URL = "http://localhost:3001";
 //-------------------------------------------------
@@ -436,5 +438,28 @@ export function getUsersid(id) {
       .catch(error => {
         console.log(error)
       });
+  }
+};
+
+export const eventUpdate = (id, info) => {
+  return async function (dispatch){
+    try {
+    
+      const event = await axios.put(`events/${id}` , info)
+
+      // console.log("eventUpdate action: ", user.data);
+
+      dispatch({
+        type: EVENT_UPDATE,
+        payload: event.data
+      })
+
+    } catch (error) {
+      dispatch({
+
+        type: ERROR,
+        payload: error.message
+      })
+    }
   }
 };

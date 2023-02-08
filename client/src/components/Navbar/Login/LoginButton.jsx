@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 // import { useHistory } from "react-router-dom";
 import { Avatar, IconButton, Modal } from '@mui/material';
 import {CiLogin} from 'react-icons/ci';
+import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 // import styled from "styled-components";
 //import Modal from "react-modal";
@@ -12,6 +13,7 @@ export const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
   // const history = useHistory();
   const [modalIsOpen, setIsOpen] = useState(false);
+  const usuario = useSelector(s => s.user)
 
   // const Logbut = styled.button`
   //   color: black;
@@ -59,7 +61,7 @@ export const LoginButton = () => {
         <div>
           <IconButton onClick={() => accountHandler()}>
             
-            <Avatar alt="p" src={user?.picture} size="lg"/>
+            <Avatar alt="p" src={usuario.user?.image} size="lg"/>
 
           </IconButton>
 
@@ -93,7 +95,7 @@ export const LoginButton = () => {
 
 
 
-// user {
+// usuario {
 
 //   isCreated : false,
 //   user : {

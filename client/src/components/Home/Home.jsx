@@ -8,7 +8,7 @@ import "./home.css";
 import Carrousel from "../Carousel/Carrousel";
 import Filters from "../Filters/Filters";
 import { H1 } from "../Styles/Styles";
-import userBanned from "../UserBanned/UserBanned";
+import UserBanned from "../UserBanned/UserBanned";
 
 import { useSelector } from "react-redux";
 
@@ -47,8 +47,8 @@ function Home() {
     return (
 
       <div>
-      
-        <userBanned/>
+        <Navbar />
+        <UserBanned/>
       </div>
     )
 
