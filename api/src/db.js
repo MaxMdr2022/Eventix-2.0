@@ -49,6 +49,7 @@ Event.hasMany(Review)
 //uno a muchos
 User.hasMany(Ticket);
 User.hasMany(Event);
+Event.belongsTo(User);
 User.hasMany(Review);
 Ticket.belongsTo(User);
 

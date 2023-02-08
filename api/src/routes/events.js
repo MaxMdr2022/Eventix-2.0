@@ -100,4 +100,39 @@ route.get("/:id",async(req,res)=>{         // GET http://localhost:3001/events
 
 });
 
+route.put("/:idEvent", async(req,res)=> {
+
+    const { idEvent } = req.params;
+    const {name, date, image, location, price, description, typeEvent, isDelete , userId} = req.body;
+
+    console.log("id", idEvent);
+    console.log("name", name, "date", date,"img", image,"loc",  location,"price", price,"des", description,"type", typeEvent,"delet", isDelete ,"userid", userId);
+    try {
+        
+
+        const event = await Event.update(
+        {
+            name,
+            date,
+            image,
+            location, 
+            price, 
+            description,
+            typeEvent,
+            isDelete,
+            userId
+        },
+        {
+            where: { id: idEvent },
+        }
+        );
+
+        res.status(200).json(event);
+
+    } catch (error) {
+        
+        res.status(500).send(error.message);
+    }
+});
+
 module.exports= route;

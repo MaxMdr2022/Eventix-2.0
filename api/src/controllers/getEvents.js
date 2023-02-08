@@ -97,7 +97,8 @@ const eventsToDb = async () => {
                 imageBanner: event.imageBanner || null,
                 typeEvent: event.typeEvent
         }
-    })
+    });
+    
     allEvents.forEach((e) => {
         Event.findOrCreate({
             where: {

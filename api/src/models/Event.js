@@ -44,6 +44,11 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT, 
       allowNull: true,
     },
+    isDelete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull:false
+    },
     createInDB:{
       type: DataTypes.BOOLEAN,
       defaultValue: true,

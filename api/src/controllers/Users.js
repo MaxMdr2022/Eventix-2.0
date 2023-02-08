@@ -81,7 +81,7 @@ const updateUser = async(req, res, next) => {
   const { first_name, last_name, image, nick, isAdmin, isBanned } = req.body;
 
   // console.log("id", idUser);
-  // console.log("nom ", first_name, "apell ", last_name, "ima", image, "nic", nick);
+  // console.log("nom ", first_name, "apell ", last_name, "ima", image, "nic", nick, "admin ", isAdmin, "ban ", isBanned);
   try {
     
 

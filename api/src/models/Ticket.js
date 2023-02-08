@@ -33,6 +33,11 @@ module.exports = (sequelize) => {
       defaultValue: false,
       allowNull:false
     },
+    cancelPayment : {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull:false
+    },
     emailSent: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
