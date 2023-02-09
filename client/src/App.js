@@ -16,6 +16,7 @@ import ReviewsPerfil from './components/Perfil/ReviewsPerfil/ReviewsPerfil';
 import Tickets from './components/Perfil/Tickets/Tickets';
 import AdminDashBoard from './components/AdminDashBoard/AdminDashBoard';
 import UserDashBoard from './components/AdminDashBoard/UserDashBoard/userDashBoard';
+import CrearEvento from './components/CrearEvento/CrearEvento';
 import axios from "axios";
 
 axios.defaults.baseURL ="http://localhost:3001/" //";//http://localhost:3001/ "https://eventix-production.up.railway.app/"
@@ -52,7 +53,7 @@ function App() {
         <Route exact path={"/"} component={Home} />
         <Route exact path={"/home/:id"} component={Detail} />
         <Route exact path={"/aboutUs"} component={aboutUs} />
-        <Route exact path={"/createevents"} component={createEvent} />
+        <Route exact path={"/createevents"} component={CrearEvento} />
         <Route exact path={"/perfil"} component={Perfil} />
         <Route exact path={"/perfil/tickets"} component={Tickets} />
         <Route exact path={"/perfil/eventos"} component={Eventos} />

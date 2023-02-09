@@ -6,7 +6,7 @@ import Modal from '../createEvent/createEvent'
 // import Filters from "../Filters/Filters";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
-
+import CrearEvento from "../CrearEvento/CrearEvento";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,7 +46,8 @@ export default function Navbar() {
             <H3>About us</H3>
           </a>
           
-          {!isAuthenticated ? null : !user.user?.isBanned ? <a style={{cursor : 'pointer'}} onClick={openIt}>Create Events</a> : null}
+          {/*!isAuthenticated ? null : !user.user?.isBanned ? <a style={{cursor : 'pointer'}} onClick={openIt}>Create Events</a> : null*/}
+          {!isAuthenticated ? null : !user.user?.isBanned ? <a href="/createevents">Crear evento</a> : null}
           {!isAuthenticated ? null : !user.user?.isBanned ? <a href="/perfil">Profile</a> : null}
           {!isAuthenticated ? null : user.user?.isAdmin ? <a href="/admindashboard">Panel Administrador</a>: null}
         </Leftbar>
@@ -61,7 +62,7 @@ export default function Navbar() {
 
 
 
-      <Modal isopen={isOpen} close={closeIt}/>
+      {/*<Modal isopen={isOpen} close={closeIt}/>*/}
     </Menu>
   );
 }
