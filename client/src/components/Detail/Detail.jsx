@@ -12,12 +12,16 @@ import { Rating } from 'react-simple-star-rating';
 import { DetailContainer, DetailEvent, BuyEvent} from '../Styles/Styles';
 import Navbar from '../Navbar/Navbar'
 import {FcPlus} from 'react-icons/fc'
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 export default function Detail() {
+
   const eventShowed = useSelector(state => state.events);
   const url = useSelector( s => s.payCryptoURL);
   const userId = useSelector(s => s.user);
   // console.log("userid detaill", userId)
+  const { isAuthenticated } = useAuth0();
   
   const history = useHistory()
   const dispatch = useDispatch()
@@ -27,18 +31,22 @@ export default function Detail() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(false);
   const [info, setInfo] = useState({tipoTicket: "", precio:0 })
+
   const updateComponent = (message) => {
     setReload(message)
   }
+
   // console.log(reload)
   useEffect(() => {
     dispatch(searchEventById(id))
     setReload(false)
   }, [id, reload, dispatch])
+
   function handleBack() {
     eventShowed.shift()
     return history.goBack()
   }
+
   function submitData (e){
 
     if(e.precio === "Entrada Liberada"){
@@ -83,28 +91,35 @@ export default function Detail() {
     return dispatch(payCrypto(datosPago));
 
   };
+
   function buttonRest (){
     
     if(cantidad > 1){
       return setCantidad(cantidad - 1);
     };
   };
+
   function buttonSum (){
 
     return setCantidad( cantidad +1);
   };
+
   function openModal() {
     setIsOpen(true);
     timer();
   };
+
   function closeModal() {
     setIsOpen(false);
   };
+
   function timer() {setTimeout(function (){
 
     setIndex(true)
    
   }, 5000)};
+
+  
   return (
     <div>
       <Navbar/>
@@ -123,7 +138,7 @@ export default function Detail() {
           </div>
         </div>
         <div>
-            <h1>Buy your Ticket</h1>
+            {isAuthenticated ? <h1>Buy your Ticket</h1> : <h1>Inicia sesion para comprar una entrada</h1>}
             {
               
           eventShowed[0] ? eventShowed[0].price.map((e, i) => 
@@ -131,7 +146,7 @@ export default function Detail() {
               
               <p>Type Ticket: {e.tipoDeTicket}</p>
               {e.precio === "Entrada Liberada" ? <p>Price: Free</p> :<p>Price: ${Number(e.precio) * cantidad} | U$D {(Number(e.precio) * cantidad / 400).toPrecision(3)}</p>}
-              <button className='btn1' onClick={()=>submitData(e)}>comprar</button>
+              {isAuthenticated ? <button className='btn1' onClick={()=>submitData(e)}>comprar</button> : null}
               <button className='btn1' hidden={cantidad > 1 ? false : true} onClick={()=>buttonRest()}>-</button>
               <button className='btn1' onClick={()=>buttonSum()}><FcPlus/></button>
               {cantidad > 1 ? <span> {cantidad} Tickets</span>: <span> {cantidad} Ticket</span>}
@@ -144,7 +159,7 @@ export default function Detail() {
         </DetailEvent>
         <BuyEvent>
           <Map direction={eventShowed.length ? eventShowed[0].location : null}/>
-          <Review updateComponent={updateComponent} event={eventShowed.length ? eventShowed[0].name : null}/>
+          {isAuthenticated ? <Review updateComponent={updateComponent} event={eventShowed.length ? eventShowed[0].name : null}/> : null}
         </BuyEvent>
          
         

@@ -38,6 +38,8 @@ export const USER_UPDATE = "USER_UPDATE";
 export const GET_USER_ID ="GET_USER_ID";
 
 export const EVENT_UPDATE = "EVENT_UPDATE";
+
+export const REVIEW_UPDATE = "REVIEW_UPDATE";
 //-------------------------------------------------
  const URL = "http://localhost:3001";
 //-------------------------------------------------
@@ -452,6 +454,29 @@ export const eventUpdate = (id, info) => {
       dispatch({
         type: EVENT_UPDATE,
         payload: event.data
+      })
+
+    } catch (error) {
+      dispatch({
+
+        type: ERROR,
+        payload: error.message
+      })
+    }
+  }
+};
+
+export const reviewUpdate = (id, info) => {
+  return async function (dispatch){
+    try {
+      console.log("info reviewUpdate action: ", info)
+      const review = await axios.put(`review/${id}` , info)
+
+      // console.log("eventUpdate action: ", user.data);
+
+      dispatch({
+        type: REVIEW_UPDATE,
+        payload: review.data
       })
 
     } catch (error) {

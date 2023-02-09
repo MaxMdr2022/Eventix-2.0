@@ -42,6 +42,7 @@ export default function Review({event, updateComponent}) {
         reset()
         setStars(0)
         updateComponent(true)
+        window.location.reload();
     }
 
   return (

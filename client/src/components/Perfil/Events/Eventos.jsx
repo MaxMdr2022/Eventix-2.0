@@ -5,6 +5,9 @@ import Navbar from "../../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { getUserEvents, eventUpdate } from "../../../Redux/actions";
 import Modal from "react-modal"
+import { useAuth0 } from "@auth0/auth0-react";
+import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo";
+import UserBanned from "../../UserBanned/UserBanned";
 
 export default function Eventos (){
 
@@ -14,6 +17,7 @@ export default function Eventos (){
     const events = useSelector(state => state.userEvents);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [eventId, setEventId] = useState();
+    const { isAuthenticated } = useAuth0();
 
     // console.log("event ", events);
 
@@ -46,6 +50,23 @@ export default function Eventos (){
         alert("Evento Eliminado");
         window.location.reload();
     };
+
+    if(!isAuthenticated){
+        return(
+            <div>
+                <MensajeLogeo/>
+            </div>
+        )
+    }
+
+    if(user.user?.isBanned){
+
+        return(
+            <div>
+                <UserBanned />
+            </div>
+        )
+    }
 
     return (
 

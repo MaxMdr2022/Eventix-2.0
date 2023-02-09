@@ -23,7 +23,7 @@ function Home() {
   const { logout } = useAuth0();
 
   const user = useSelector(s => s.user)
-
+  // console.log("usuario", user)
 
   function handleClick(){
     logout()
@@ -47,7 +47,6 @@ function Home() {
     return (
 
       <div>
-        <Navbar />
         <UserBanned/>
       </div>
     )

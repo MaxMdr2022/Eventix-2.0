@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import Navbar from "../../Navbar/Navbar"
 import NavBarPerfil from "../NavBarPerfil/NavBarPerfil"
 import { paymentHandler, notificationPayment} from "../../../Redux/actions"
+import { useAuth0 } from "@auth0/auth0-react"
+import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo"
+import UserBanned from "../../UserBanned/UserBanned"
 
 export default function Tickets (){
 
@@ -10,6 +13,8 @@ export default function Tickets (){
     const dispatch = useDispatch();
     const user = useSelector((state => state.user))
     const ticket = useSelector(s => s.dataPago);
+
+    const { isAuthenticated } = useAuth0();
 
     const userId = Object.keys(user).length > 0 ? user.user.id : null
 
@@ -28,6 +33,25 @@ export default function Tickets (){
 
     console.log("infoticket", ticketsPurchased);
 
+    if(!isAuthenticated){
+
+        return(
+
+            <div>
+                <MensajeLogeo />
+            </div>
+        )
+        
+    };
+
+    if(user.user?.isBanned){
+
+        return(
+            <div>
+                <UserBanned />
+            </div>
+        )
+    }
 
 
     return (
@@ -36,6 +60,7 @@ export default function Tickets (){
             <Navbar/>
             <NavBarPerfil/>
 
+            <h2>🤩 Mis Entradas 🎟 😄</h2>
             {ticketsPurchased.length > 0 ? 
             
                 ticketsPurchased.map(e =>

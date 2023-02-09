@@ -5,6 +5,8 @@ import { userUpdate } from "../../../Redux/actions";
 import Navbar from "../../Navbar/Navbar";
 import EventosDashBoard from "./EventosDashBoard";
 import TicketDashBoard from "./TicketDashBoard";
+import ComentariosDashBoard from "./ComentariosDahsBoard";
+
 
 export default function UserDashBoard (){
 
@@ -113,7 +115,7 @@ export default function UserDashBoard (){
 
             <div>
                 <Navbar/>
-                <h>Acceso restringido {">:("} </h>
+                <h1>Acceso restringido 😤 😡 </h1>
             </div>
         )
     }
@@ -211,7 +213,7 @@ export default function UserDashBoard (){
             </div>
 
             <div>
-                <h1>Comentarios</h1>
+                <ComentariosDashBoard idUser={id} />
             </div>
         </div>
     )

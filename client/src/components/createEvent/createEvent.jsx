@@ -1,3 +1,4 @@
+import React from 'react';
 import {useForm } from 'react-hook-form'
 import DatePicker from "react-datepicker";
 import { useState} from 'react';
@@ -11,13 +12,8 @@ import {useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import './createEvent.css'
 import { H1 } from '../Styles/Styles';
-
-
-
-
-
-
-
+import { useAuth0 } from '@auth0/auth0-react';
+import MensajeLogeo from '../MensajeLogeo/MensajeLogeo';
 
 export default function CreateEvent({isopen, close}) {
   const {register, setValue, handleSubmit, reset, formState: { errors }} = useForm()
@@ -27,6 +23,7 @@ export default function CreateEvent({isopen, close}) {
   const dispatch = useDispatch()
   const eventype = ["Rock", "Reggeaton", "Electronica", "Cumbia", "Tango", "Folklore", "Pop", "Art", "Ballet"]
   const user = useSelector(state => state.user)
+  const { isAuthenticated } = useAuth0();
 
   const userId = Object.keys(user).length > 0 ? user.user.id : null
 
@@ -41,7 +38,7 @@ export default function CreateEvent({isopen, close}) {
     e.preventDefault();
     setPrice(prevPrice => [...prevPrice, { tipoDeTicket: '', precio: '' }]);
     setValue('price', prevPrice => [...prevPrice, { tipoDeTicket: '', precio: '' }]);
-}
+  }
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -83,7 +80,10 @@ export default function CreateEvent({isopen, close}) {
       
     </div>
   ))
+
   
+
+
   return (
     
       <Modal
@@ -155,4 +155,9 @@ export default function CreateEvent({isopen, close}) {
     
 
   )
+  
+  
+ 
+  
+  
 }

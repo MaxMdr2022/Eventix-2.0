@@ -10,36 +10,62 @@ import { Carousel } from "react-responsive-carousel";
 import Modal from '../createEvent/createEvent'
 import {Link} from 'react-router-dom'
 import NavBarPerfil from "./NavBarPerfil/NavBarPerfil";
+import { useAuth0 } from "@auth0/auth0-react";
+import MensajeLogeo from "../MensajeLogeo/MensajeLogeo";
+import UserBanned from "../UserBanned/UserBanned";
 
 export default function Perfil () {
     
     
     const usuario = useSelector((state => state.user))
     // const usuario = Object.keys(user).length > 0 ? user : ""
-
+    const { isAuthenticated } = useAuth0();
     
-    
-    return (
+    if(usuario.user?.isBanned){
 
-        <div>
-            <Navbar/>
-            <NavBarPerfil/>
+        return(
 
             <div>
-                <h2>Perfil de {usuario.user?.nick}</h2>
-
-                <img src={usuario.user?.image} alt='' />
-
-                <p>E-mail: {usuario.user?.email}</p>
-
-                <p>Nombre: {usuario.user?.first_name}</p>
-                <p>Apellido: {!usuario.user?.last_name.length > 0 ? "-" : usuario.user.last_name}</p>
-                <p>Nick: {usuario.user?.nick}</p>
+                <UserBanned />
             </div>
+        )
+    }
 
-        </div>
-        
-    )
+    if(isAuthenticated){
+
+        return (
+
+            <div>
+                <Navbar/>
+                <NavBarPerfil/>
+
+                <div>
+                    <h2>Perfil de {usuario.user?.nick}</h2>
+
+                    <img src={usuario.user?.image} alt='' />
+
+                    <p>E-mail: {usuario.user?.email}</p>
+
+                    <p>Nombre: {usuario.user?.first_name}</p>
+                    <p>Apellido: {!usuario.user?.last_name.length > 0 ? "-" : usuario.user.last_name}</p>
+                    <p>Nick: {usuario.user?.nick}</p>
+                </div>
+
+            </div>
+            
+        )
+
+    }else{
+
+        return(
+
+            <div>
+                <MensajeLogeo/>
+
+            </div>
+        )
+    }
+    
     
     // user {
 
@@ -52,6 +78,7 @@ export default function Perfil () {
     //     // isAdmin: true
     //     // last_name: "Maxi"
     //     // nick: "Eventix Administrador"
+    //      // isBanned: false
     //   }
 
     // }

@@ -2,11 +2,14 @@ import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import { getUsers } from "../../Redux/actions";
+import { useAuth0 } from "@auth0/auth0-react";
+import MensajeLogeo from "../MensajeLogeo/MensajeLogeo";
 
 export default function AdminDashBoard (){
 
 
     const dispatch = useDispatch();
+    const { isAuthenticated } = useAuth0();
 
     const users = useSelector(state => state.users);
     const user = useSelector(s => s.user)
@@ -18,6 +21,13 @@ export default function AdminDashBoard (){
 
     // }, [dispatch]);
 
+    if(!isAuthenticated){
+        return(
+            <div>
+                <MensajeLogeo />
+            </div>
+        )
+    }
 
 
     if(!user.user){
@@ -37,7 +47,7 @@ export default function AdminDashBoard (){
 
             <div>
                 <Navbar/>
-                <h>Acceso restringido {">:("} </h>
+                <h1>Acceso restringido 😤 😡 ☠</h1>
             </div>
         )
     }

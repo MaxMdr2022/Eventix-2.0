@@ -4,6 +4,9 @@ import Navbar from "../../Navbar/Navbar"
 import NavBarPerfil from "../NavBarPerfil/NavBarPerfil"
 import { userUpdate } from "../../../Redux/actions";
 import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo";
+import UserBanned from "../../UserBanned/UserBanned";
 
 export default function Setings (){
     
@@ -11,6 +14,7 @@ export default function Setings (){
     const history = useHistory();
     const user = useSelector((state => state.user));
     const userId = Object.keys(user).length > 0 ? user.user.id : null;
+    const { isAuthenticated } = useAuth0();
 
     // console.log("user_", user);
 
@@ -64,6 +68,21 @@ export default function Setings (){
         history.push("/perfil");
     };
     
+    if(!isAuthenticated){
+        return (
+            <div>
+                <MensajeLogeo />
+            </div>
+        )
+    }
+
+    if(user.user?.isBanned){
+        return(
+            <div>
+                <UserBanned />
+            </div>
+        )
+    }
 
     return (
 
@@ -74,7 +93,7 @@ export default function Setings (){
             {Object.keys(user).length > 0  ? 
             
                 <div>
-                    <h2>Editar Perfil</h2>
+                    <h2> Editar Perfil 📝</h2>
 
                     <p>e-mail: {user.user.email}</p>
 
