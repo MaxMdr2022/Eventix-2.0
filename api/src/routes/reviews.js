@@ -32,6 +32,38 @@ route.get("/:userId/reviews", async(req,res) => {
    } catch (error) {
        res.status(500).send({ message: 'Error fetching events' });
    }
-})
+});
+
+
+route.put("/:idReview", async(req,res)=>{
+
+
+    const { idReview } = req.params;
+    const {title, stars, reviewDelete, text} = req.body;
+
+    console.log("id", idReview);
+    console.log("title", title, "stars", stars, "delete", reviewDelete, "text", text);
+    try {
+        
+
+        const review = await Review.update(
+        {
+            title, 
+            stars,
+            reviewDelete,
+            text
+        },
+        {
+            where: { id: idReview },
+        }
+        );
+
+        res.status(200).json(review);
+
+    } catch (error) {
+        
+        res.status(500).send(error.message);
+    }
+});
 
 module.exports = route
