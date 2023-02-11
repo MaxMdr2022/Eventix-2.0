@@ -5,7 +5,7 @@ const createEvent = async(req) =>{
     const {name, date, image, location, price, description, typeEvent, userId} = req;
 
     // console.log("id", userId);
-    // console.log("name", name, "date", date, "image ", image, "location ",location, "price ", price, "tipoeven", typeEvent)
+    console.log("name", name, "date", date, "image ", image, "location ",location, "price ", price, "tipoeven", typeEvent)
     const event = await Event.create({
 
         name,

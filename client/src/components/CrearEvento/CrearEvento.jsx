@@ -39,50 +39,53 @@ export default function CrearEvento () {
 
     
     const handleAddItem = (e) => {
-    e.preventDefault();
-    setPrice(prevPrice => [...prevPrice, { tipoDeTicket: '', precio: '' }]);
-    setValue('price', prevPrice => [...prevPrice, { tipoDeTicket: '', precio: '' }]);
+        e.preventDefault();
+        setPrice(prevPrice => [...prevPrice, { tipoDeTicket: '', precio: '' }]);
+        setValue('price', prevPrice => [...prevPrice, { tipoDeTicket: '', precio: '' }]);
+
+        console.log("precio", price)
     }
 
     const handleDateChange = (date) => {
-    setSelectedDate(date);
-    const formattedDate = date.toLocaleDateString("es-ES", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    });
-    setValue("date", formattedDate);
+        setSelectedDate(date);
+        const formattedDate = date.toLocaleDateString("es-ES", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        });
+        // console.log("date", selectedDate)
+        setValue("date", formattedDate);
     }
 
     const onSubmit = (data) => {
-    console.log(data)
+        // console.log(data)
         dispatch(createEvent(data))
         reset()
         return history.push("/")
     }
 
     const priceform = price.map((item, index) => (
-    <div key={index}>
-        <div>
-        <label>Ticket Type</label>
-        <input
-        placeholder='Entrada General..'
-        name={`price[${index}].tipoDeTicket`}
-        {...register(`price[${index}].tipoDeTicket`)}
-        defaultValue={item.tipoDeTicket}
-        />
+        <div key={index}>
+            <div>
+                <label>Ticket Type</label>
+                <input
+                placeholder='Entrada General..'
+                name={`price[${index}].tipoDeTicket`}
+                {...register(`price[${index}].tipoDeTicket`)}
+                defaultValue={item.tipoDeTicket}
+                />
+            </div>
+            <div>
+                <label>Price</label>
+                <input
+                placeholder='price'
+                name={`price[${index}].precio`}
+                {...register(`price[${index}].precio`)}
+                defaultValue={item.precio}
+                />
+            </div>
+            
         </div>
-        <div>
-        <label>Price</label>
-        <input
-        placeholder='price'
-        name={`price[${index}].precio`}
-        {...register(`price[${index}].precio`)}
-        defaultValue={item.precio}
-        />
-        </div>
-        
-    </div>
     ))
     
 
@@ -91,54 +94,63 @@ export default function CrearEvento () {
             <H1>Create Event</H1>
 
             <p>(if your event is +18, please include it in the name with parentesis )</p>
-            <form className='formcontainer' onSubmit={handleSubmit(onSubmit)}>
-            <div>
-            <label>Name</label>
-            <input placeholder='name of the event' type="text" {...register('name', {
-            required: true,
-            })} />
-            {errors.name && <span>This field is required</span>}
 
-            </div>
-            <div>
-            <label>Date</label>
-            <DatePicker 
-            name="date"
-            {...register('date', { required: true })}
-            placeholderText='pick a date'
-            selected={selectedDate}
-            onChange={handleDateChange}/>
-            {errors.date && <span>This field is required</span>}
-            </div>
-            <div>
-            <label>Image</label>
-            <input placeholder='URL of the image' type="text" {...register('image', { required: true })} />
-            {errors.image && <span>This field is required</span>}
-            </div>
-            <div>
-            <label>Location</label>
-            <input placeholder='address' type="text" {...register('location', { required: true })} />
-            {errors.location && <span>This field is required</span>}
-            </div>
-            <div>
-            <label>Genre</label>
-            <select name="" id="">
-            <option value="">select</option>
-            {eventype.map((type, i) => {
-                return <option key={i} value={type} {...register('typeEvent.genre', {required: true})}>{type}</option>
-            })}
-            </select>
-            {errors.typeEvent && <span>This field is required</span>}
-            </div>
-            <div>
-            <button onClick={handleAddItem}>Add Price type</button>
-            {priceform}
-            </div>
-            <div>
-            <label>Description</label>
-            <input type="text" {...register('description')} />
-            </div>
-            <input type="submit" value='Create'/>
+            <form className='formcontainer' onSubmit={handleSubmit(onSubmit)}>
+
+                <div>
+                    <label>Name</label>
+                    <input placeholder='name of the event' type="text" {...register('name', {
+                    required: true,
+                    })} />
+                    {errors.name && <span>This field is required</span>}
+
+                </div>
+
+                <div>
+                    <label>Date</label>
+                    <DatePicker 
+                    name="date"
+                    {...register('date', { required: true })}
+                    placeholderText='pick a date'
+                    selected={selectedDate}
+                    onChange={handleDateChange}/>
+                    {errors.date && <span>This field is required</span>}
+                </div>
+
+                <div>
+                    <label>Image</label>
+                    <input placeholder='URL of the image' type="text" {...register('image', { required: true })} />
+                    {errors.image && <span>This field is required</span>}
+                </div>
+
+                <div>
+                    <label>Location</label>
+                    <input placeholder='address' type="text" {...register('location', { required: true })} />
+                    {errors.location && <span>This field is required</span>}
+                </div>
+
+                <div>
+                    <label>Genre</label>
+                    <select name="" id="">
+                    <option value="">select</option>
+                    {eventype.map((type, i) => {
+                        return <option key={i} value={type} {...register('typeEvent.genre', {required: true})}>{type}</option>
+                    })}
+                    </select>
+                    {errors.typeEvent && <span>This field is required</span>}
+                </div>
+
+                <div>
+                    {priceform.length > 0 ? null :<button onClick={handleAddItem}>Add Price type</button>}
+                    {priceform}
+                </div>
+
+                <div>
+                    <label>Description</label>
+                    <textarea type="text" {...register('description')}></textarea>
+                </div>
+
+                <input type="submit" value='Create'/>
             </form>
         </div>
     )

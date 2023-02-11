@@ -57,7 +57,7 @@ export default function Review({event, updateComponent}) {
         </div>
         <div>
             <h3>description</h3>
-            <input type="text" {...register('text')}/>
+            <textarea type="text" {...register('text')}></textarea>
         </div>
         <div>
             <button>Rate</button>
