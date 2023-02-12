@@ -88,14 +88,14 @@ export default function CrearEvento () {
         </div>
     ))
     
-
+        //className='formcontainer'
     return (
         <div>
             <H1>Create Event</H1>
 
             <p>(if your event is +18, please include it in the name with parentesis )</p>
 
-            <form className='formcontainer' onSubmit={handleSubmit(onSubmit)}>
+            <form  onSubmit={handleSubmit(onSubmit)}>
 
                 <div>
                     <label>Name</label>
