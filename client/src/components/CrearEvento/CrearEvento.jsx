@@ -2,7 +2,9 @@
 // import { useDispatch, useSelector } from "react-redux";
 import React from 'react';
 import {useForm } from 'react-hook-form'
-import DatePicker from "react-datepicker";
+import DatePicker, {registerLocale} from "react-datepicker";
+import es from 'date-fns/locale/es';
+
 import { useState} from 'react';
 // import { Autocomplete } from '@react-google-maps/api';
 import {useDispatch} from 'react-redux'
@@ -19,7 +21,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import MensajeLogeo from '../MensajeLogeo/MensajeLogeo';
 
 export default function CrearEvento () {
-
+    registerLocale('es', es)
     const {register, setValue, handleSubmit, reset, formState: { errors }} = useForm()
     const [selectedDate, setSelectedDate] = useState(null);
     const [price, setPrice] = useState([]);
@@ -111,9 +113,11 @@ export default function CrearEvento () {
                     <DatePicker 
                     name="date"
                     {...register('date', { required: true })}
-                    placeholderText='pick a date'
+                    placeholderText='Elegir una fecha'
                     selected={selectedDate}
-                    onChange={handleDateChange}/>
+                    onChange={handleDateChange}
+                    withPortal
+                    locale="es"/>
                     {errors.date && <span>This field is required</span>}
                 </div>
 
