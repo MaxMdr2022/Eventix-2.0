@@ -1,0 +1,126 @@
+.contenedor123{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pe{
+    display: flex;
+    justify-content: center;
+}
+
+/* .formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.formulario input{
+
+    background-color: rgb(19, 143, 131);
+    border: none;
+    outline: 0px;
+}
+
+.nombre{
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+} */
+
+/* ----------------------------------------------- */
+.contenedorForm{
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    color: black;
+}
+
+.form_input{
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px rgb(86, 62, 132);
+}
+
+.form_label{
+
+    position: absolute;
+    top: 20px;
+    left: 2rem;
+    background: none;
+    padding: 0 .5rem ;
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+}
+
+.form_box{
+
+    position: relative;
+    padding: 1rem;
+}
+
+.form_input:focus{
+
+    outline: solid 2px rgb(32, 170, 208);
+}
+
+.form_input:focus+.form_label{
+
+    transform: translateY(-2rem);
+    transition: .5s;
+    font-size: 15px;
+    color: rgb(38, 183, 223);
+}
+
+.form_input:not(:placeholder-shown)+.form_label{
+
+    /* background: yellow; */
+    transform: translateY(-1.6rem);
+    transition: .5s;
+    font-size: 15px;
+}
+
+.form_label_date{
+
+    position: absolute;
+    top: -7px;
+    left: 2rem;
+    background: none;
+    padding: 0 .5rem ;
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+}
+
+.btnPrice{
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: solid 2px rgb(86, 62, 132);
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+}
+
+.btnPrice:hover{
+
+    color: rgb(38, 183, 223);
+    border: solid 2px rgb(32, 170, 208);
+    transition: .5s;
+}
+
+input:invalid{
+
+    border: solid 3px rgb(230, 37, 60);
+}

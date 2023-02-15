@@ -19,6 +19,8 @@ import "../createEvent/createEvent.css"
 import { H1 } from '../Styles/Styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import MensajeLogeo from '../MensajeLogeo/MensajeLogeo';
+import "./CrearEvento.css"
+import Navbar from '../Navbar/Navbar';
 
 export default function CrearEvento () {
     registerLocale('es', es)
@@ -67,24 +69,26 @@ export default function CrearEvento () {
     }
 
     const priceform = price.map((item, index) => (
-        <div key={index}>
-            <div>
-                <label>Ticket Type</label>
-                <input
-                placeholder='Entrada General..'
+        <div   key={index}>
+            <div className='form_box'>
+                
+                <input className='form_input' id='textTicketType'
+                placeholder=' '
                 name={`price[${index}].tipoDeTicket`}
                 {...register(`price[${index}].tipoDeTicket`)}
                 defaultValue={item.tipoDeTicket}
                 />
+                <label className='form_label' for="textTicketType">Tipo de Entrada</label>
             </div>
-            <div>
-                <label>Price</label>
-                <input
-                placeholder='price'
+            <div className='form_box'>
+                
+                <input className='form_input' id='textPrice'
+                placeholder=' '
                 name={`price[${index}].precio`}
                 {...register(`price[${index}].precio`)}
                 defaultValue={item.precio}
                 />
+                <label className='form_label' for="textPrice">Precio de Entrada</label>
             </div>
             
         </div>
@@ -93,69 +97,133 @@ export default function CrearEvento () {
         //className='formcontainer'
     return (
         <div>
-            <H1>Create Event</H1>
 
-            <p>(if your event is +18, please include it in the name with parentesis )</p>
 
-            <form  onSubmit={handleSubmit(onSubmit)}>
+            <Navbar/>
+            <div className='contenedor123'>
 
-                <div>
-                    <label>Name</label>
-                    <input placeholder='name of the event' type="text" {...register('name', {
-                    required: true,
-                    })} />
-                    {errors.name && <span>This field is required</span>}
-
+                
+                <H1>Publicar Evento</H1>
+                
+                
+                <div className='pe'>
+                    <p>Completa el siguente formulario con los datos de tu evento. </p>
                 </div>
+                
+                <div className='contenedorForm'>
 
-                <div>
-                    <label>Date</label>
-                    <DatePicker 
-                    name="date"
-                    {...register('date', { required: true })}
-                    placeholderText='Elegir una fecha'
-                    selected={selectedDate}
-                    onChange={handleDateChange}
-                    withPortal
-                    locale="es"/>
-                    {errors.date && <span>This field is required</span>}
+                    <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
+
+
+                        {errors.name &&
+                        
+                            <div className='form_box'>
+                                
+                                <input className='form_input' id='textName' placeholder='Debe ingresat un nombre' type="text" {...register('name', {
+                                required: true,
+                                })} />
+                                
+                                
+                            </div>
+                        }
+                        {!errors.name &&
+                            <div className='form_box'>
+                                
+                                <input className='form_input' id='textName' placeholder=' ' type="text" {...register('name', {
+                                required: true,
+                                })} />
+                                <label className='form_label' for="textName" >Nombre2</label>
+                                {errors.name && <p>This field is required</p>}
+                            </div>
+                        }
+
+
+
+
+
+
+
+
+                        <div className='form_box'>
+                            
+                            <input className='form_input' id='textName' placeholder=' ' type="text" {...register('name', {
+                            required: true,
+                            })} />
+                            <label className='form_label' for="textName" >Nombre</label>
+                            {errors.name && <span>This field is required</span>}
+                        </div>
+
+                        <div className='form_box'>
+
+                            <input className='form_input' id='textImage' placeholder=' ' type="text" {...register('image', { required: true })} />
+                            <label className='form_label' for="textImage">URL Imagen</label>
+                            {errors.image && <span>This field is required</span>}
+                        </div>    
+                    
+                        <div className='form_box'>
+
+                            <DatePicker 
+                            
+                            className='form_input'
+                            name="date"
+                            {...register('date', { required: true })}
+                            placeholderText='Fecha del Evento '
+                            selected={selectedDate}
+                            onChange={handleDateChange}
+                            withPortal
+                            locale="es"/>
+                            
+                            <label className='form_label_date' for="textDate">Fecha</label>
+                            {errors.date && <span>This field is required</span>}
+                        </div>    
+
+                        <div className='form_box'>
+
+                            
+                            <input className='form_input' id='textLocation' placeholder=' ' type="text" {...register('location', { required: true })} />
+                            <label className='form_label' for="textLocation">Ubicacion</label>
+                            {errors.location && <span>This field is required</span>}
+                        </div>
+
+                        <div className='form_box'>
+                            <label>Genre</label>
+                            <select name="" id="">
+                            <option value="">select</option>
+                            {eventype.map((type, i) => {
+                                return <option key={i} value={type} {...register('typeEvent.genre', {required: true})}>{type}</option>
+                            })}
+                            </select>
+                            {errors.typeEvent && <span>This field is required</span>}
+                        </div>
+                        
+                        <div className='form_box'>
+
+                            
+                            <textarea className='form_input' id='textDescription' placeholder=' ' type="text" {...register('description')}></textarea>
+                            <label className='form_label' for="textDescription">Description</label>
+                        </div>
+        
+                        {priceform.length > 0 ? null :
+                            
+                            <div className='form_box'>
+
+                                <button className='btnPrice' onClick={handleAddItem}>Precio de Entrada</button>
+                            </div>
+                        }
+                            
+                        {priceform}
+
+                        <div className='form_box'>
+
+                                <button className='btnPrice' type='submit'>Publicar</button>
+                            </div>
+                        <input type="submit" value='Create'/>
+                    
+                    </form>
                 </div>
-
-                <div>
-                    <label>Image</label>
-                    <input placeholder='URL of the image' type="text" {...register('image', { required: true })} />
-                    {errors.image && <span>This field is required</span>}
-                </div>
-
-                <div>
-                    <label>Location</label>
-                    <input placeholder='address' type="text" {...register('location', { required: true })} />
-                    {errors.location && <span>This field is required</span>}
-                </div>
-
-                <div>
-                    <label>Genre</label>
-                    <select name="" id="">
-                    <option value="">select</option>
-                    {eventype.map((type, i) => {
-                        return <option key={i} value={type} {...register('typeEvent.genre', {required: true})}>{type}</option>
-                    })}
-                    </select>
-                    {errors.typeEvent && <span>This field is required</span>}
-                </div>
-
-                <div>
-                    {priceform.length > 0 ? null :<button onClick={handleAddItem}>Add Price type</button>}
-                    {priceform}
-                </div>
-
-                <div>
-                    <label>Description</label>
-                    <textarea type="text" {...register('description')}></textarea>
-                </div>
-
-                <input type="submit" value='Create'/>
-            </form>
+                
+            </div>
         </div>
+        
     )
 };
