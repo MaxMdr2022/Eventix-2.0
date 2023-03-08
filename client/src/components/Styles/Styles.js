@@ -65,6 +65,7 @@ padding: 30px;
 export const NotFound = styled.p`
 display: flex;
 text-align: center;
+
 `
 export const Cube = styled.section`
 display: flex
@@ -168,6 +169,7 @@ export const CardE = styled.div`
 
   .text {
     // height: 10vh;
+    width: 100%;
     position: absolute;
     align-items: center
     bottom: 0;
