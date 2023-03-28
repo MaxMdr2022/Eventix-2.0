@@ -66,30 +66,6 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Concert", "genre":"Rock"}
       },
       {
-        "name": "Samsara Beach (+21)",
-        "date": [],
-        "location": "Playas del Sur\nRP11 4866",
-        "price": [
-          {
-            "tipoDeTicket": "Entrada General 1",
-            "precio": "$2.500.-"
-          },
-          {
-            "tipoDeTicket": "Early Ticket",
-            "precio": "$2.000.-"
-          }
-        ],
-        "description": [
-          "Playas del Sur RP11 4866",
-          "Playas del Sur     RP11 4866",
-          "Vení a disfrutar de los mejores After Beach del verano en nuestro exclusivo parador Samsara Beach, en las Playas del Sur de Mar del Plata.  Le ponemos música y diversión a tus tardes de vacaciones. Salí del cemento, vení a bailar a la playa.  Evento exclusivo para mayores de 21 años. No se permite el acceso con mascotas, heladeras ni bebidas alcoholicas. La casa se reserva el derecho de admisión y permanencia.  Política de devolución: los eventos se suspenderán únicamente por lluvias o tormentas fuertes. En caso de suspensión, el evento se reprogramará para una fecha a designar y en caso de no poder asistir se podrá solicitar el reintegro a través de la plataforma de passline.",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/samsara-beach-191582-min.jpg",
-        "typeEvent":{"type":"Concert", "genre":"Rock"}
-      },
-      {
         "name": "Calamar Music Sessions: Lisandro Skar / Rondamon / Tiano Live Set",
         "date": [
           "Jueves 12 de Enero 2023 - 17:00 hrs."
@@ -255,7 +231,7 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Concert", "genre":"Reggeaton"}
       },
       {
-        "name": "Downtempo Rooftop pres. Cabina Abierta w/ Matias Italost + Guille Aguilera b2b Juan Cruz Bauza + Seba Palumbo + Román R + Cris Rosales + Nibor b2b Peps + Sebastian Blanco (+18)",
+        "name": "Downtempo Rooftop pres. Cabina Abierta (+18)",
         "date": [
           "Jueves 12 de Enero 2023 - 19:00 hrs."
         ],
@@ -942,7 +918,7 @@ const  getApi = async()=>{
           "Vení a disfrutar de los mejores After Beach del verano en nuestro exclusivo parador Samsara Beach, en las Playas del Sur de Mar del Plata.  Le ponemos música y diversión a tus tardes de vacaciones. Salí del cemento, vení a bailar a la playa.  Evento exclusivo para mayores de 21 años. No se permite el acceso con mascotas, heladeras ni bebidas alcoholicas. La casa se reserva el derecho de admisión y permanencia.  Política de devolución: los eventos se suspenderán únicamente por lluvias o tormentas fuertes. En caso de suspensión, el evento se reprogramará para una fecha a designar y en caso de no poder asistir se podrá solicitar el reintegro a través de la plataforma de passline.",
           "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley."
         ],
-        "image": "https://imagenes.passline.com/eventos/samsara-beach-191581-min.jpg",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/08/fe/3b/b6/samsara-beach.jpg",
         "typeEvent":{"type":"Concert", "genre":"Cumbia"}
       },
       {
@@ -1975,33 +1951,6 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Theater", "genre":"Ballet"}
       },
       {
-        "name": "Black & White - Chandon Night (+18)",
-        "date": [
-          "Sábado 14 de Enero 2023 - 23:50 hrs."
-        ],
-        "location": "Botavara\nPinamar Norte | La Frontera",
-        "price": [
-          {
-            "tipoDeTicket": "Entrada General Dress Code: Men Black Woman White",
-            "precio": "$2.000.-"
-          },
-          {
-            "tipoDeTicket": "Early Bird Dress Code: Men Black Woman White",
-            "precio": "$1.000.-"
-          }
-        ],
-        "description": [
-          "Botavara Pinamar Norte | La Frontera",
-          "Botavara     Pinamar Norte | La Frontera",
-          "Eventos masivos",
-          "Chandon Night at Botavara , Pinamar Norte Black & White Dress Code: Men Black Woman White  Evento Exclusivo SOLO CON INVITACION  Open Doors 01hs",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/black-white-chandon-night-149027-min.jpg",
-        "typeEvent":{"type":"Theater", "genre":"Ballet"}
-      },
-      {
         "name": "Dixit - ANNIVERSARY (+18)",
         "date": [],
         "location": "DIXIT\nAV. 3 PASEO 106",
@@ -2628,27 +2577,6 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Night Club", "genre":"Varied"}
       },
       {
-        "name": "domingo 15 - Reload • electronic music session (+21)",
-        "date": [
-          "Domingo 15 de Enero 2023 - 23:55 hrs."
-        ],
-        "location": "Pinamar\nAvenida Del Mar & Tobías",
-        "price": [
-          {
-            "tipoDeTicket": "Early Birds",
-            "precio": "$1.500.-"
-          }
-        ],
-        "description": [
-          "Pinamar Avenida Del Mar & Tobías",
-          "Pinamar     Avenida Del Mar & Tobías",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/domingo-15-reload-electronic-music-session-192245-min.jpg",
-        "typeEvent":{"type":"Night Club", "genre":"Varied"}
-      },
-      {
         "name": "ROOMIE Domingo 15 ENE - Ladies Night (+18)",
         "date": [
           "Domingo 15 de Enero 2023 - 23:55 hrs."
@@ -2759,26 +2687,6 @@ const  getApi = async()=>{
           "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
         ],
         "image": "https://imagenes.passline.com/eventos/lunes-1601-saona-186897-min.jpg",
-        "typeEvent":{"type":"Night Club", "genre":"Varied"}
-      },
-      {
-        "name": "Samsara Beach (+21)",
-        "date": [],
-        "location": "Playas del Sur\nRP11 4866",
-        "price": [
-          {
-            "tipoDeTicket": "Early Ticket",
-            "precio": "$2.500.-"
-          }
-        ],
-        "description": [
-          "Playas del Sur RP11 4866",
-          "Playas del Sur     RP11 4866",
-          "Vení a disfrutar de los mejores After Beach del verano en nuestro exclusivo parador Samsara Beach, en las Playas del Sur de Mar del Plata.  Le ponemos música y diversión a tus tardes de vacaciones. Salí del cemento, vení a bailar a la playa.  Evento exclusivo para mayores de 21 años. No se permite el acceso con mascotas, heladeras ni bebidas alcoholicas. La casa se reserva el derecho de admisión y permanencia.  Política de devolución: los eventos se suspenderán únicamente por lluvias o tormentas fuertes. En caso de suspensión, el evento se reprogramará para una fecha a designar y en caso de no poder asistir se podrá solicitar el reintegro a través de la plataforma de passline.",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/samsara-beach-191572-min.jpg",
         "typeEvent":{"type":"Night Club", "genre":"Varied"}
       },
       {
@@ -2999,47 +2907,6 @@ const  getApi = async()=>{
         ],
         "image": "https://imagenes.passline.com/eventos/martes-1701-bqe-beach-aister-after-beach-148997-min.jpg",
         "typeEvent":{"type":"Family", "genre":"Family-Varied"}
-      },
-      {
-        "name": "martes 17 - * Lolita Festival * (+18)",
-        "date": [
-          "Martes 17 de Enero 2023 - 23:55 hrs."
-        ],
-        "location": "Pinamar\nAvenida Del Mar & Tobías",
-        "price": [
-          {
-            "tipoDeTicket": "last call ingreso al evento valido para hombre y mujer,",
-            "precio": "$9.000.-"
-          },
-          {
-            "tipoDeTicket": "preventa 3 Ingreso al evento valido para hombre y mujer.",
-            "precio": "$4.500.-"
-          },
-          {
-            "tipoDeTicket": "preventa 4 Ingreso al evento valido para hombre y mujer",
-            "precio": "$6.000.-"
-          },
-          {
-            "tipoDeTicket": "Early Birds",
-            "precio": "$2.500.-"
-          },
-          {
-            "tipoDeTicket": "Preventa 1 .-",
-            "precio": "$3.000.-"
-          },
-          {
-            "tipoDeTicket": "Preventa 2 .-",
-            "precio": "$4.000.-"
-          }
-        ],
-        "description": [
-          "Pinamar Avenida Del Mar & Tobías",
-          "Pinamar     Avenida Del Mar & Tobías",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/martes-17-lolita-festival-189541-min.jpg",
-        "typeEvent":{"type":"Night Club", "genre":"Varied"}
       },
       {
         "name": "Martes 17.1 Memory (+18)",
@@ -3345,7 +3212,7 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Night Club", "genre":"Varied"}
       },
       {
-        "name": "Jueves 19.01 - La Magica: Damas Gratis + El Polaco + Yerba Brava + Jambao + Yerba Brava + Djs Invitados (+18)",
+        "name": "Jueves 19.01 - La Magica: Damas Gratis + El Polaco + Yerba Brava (+18)",
         "date": [
           "Jueves 19 de Enero 2023 - 20:00 hrs."
         ],
@@ -3626,29 +3493,6 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Night Club", "genre":"Varied"}
       },
       {
-        "name": "ACANTILADOS - THE ORIGINAL POOLPARTY (+18)",
-        "date": [
-          "Domingo 22 de Enero 2023 - 10:00 hrs."
-        ],
-        "location": "PUEBLO PAMPA - Mar del Plata.\nRuta 226 , KM 14. Mar del Plata.",
-        "price": [
-          {
-            "tipoDeTicket": "EARLY TICKET ACANTILADOS \"THE ORIGINAL POOLPARTY\" - DOM 22 DE ENERO/TODO EL DIA.",
-            "precio": "$3.500.-"
-          }
-        ],
-        "description": [
-          "PUEBLO PAMPA - Mar del Plata. Ruta 226 , KM 14. Mar del Plata.",
-          "PUEBLO PAMPA - Mar del Plata.     Ruta 226 , KM 14. Mar del Plata.",
-          "JLPRODUCTIONS MAS DE 15 AÑOS DE TRAYECTORIA. LOS EVENTOS MAS DIVERTIDOS DE MAR DEL PLATA. DJS NACIONALES E INTERNACIONALES.\\\\r\\\\nAFTERBEACHS, BOLICHES, POOLPARTY...\\\\r\\\\n@ACANTILADOSMDQ",
-          "ACANTILADOS \"THE ORIGINAL POOLPARTY\" Domingo 12 de de Enero - TODO EL DIA ! MEGA PISCINA FIESTA DE LA ESPUMA INFLABLES ACUATICOS FOOD TRUCKS TRAGOS ESTACIONAMIENTO PRIVADO  Line Up: Albert Neve (ESP) Aldo Haydar Roberto Ceratti Meli K Jose Luis Gabin Felix Galeano Papasodaro Gonzalo Cesar Rapa Lucas Vazquez Maite & Sammito Nayla Nicole (Singer) Brigando  CAPACIDAD LIMITADA !",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/acantilados-the-original-poolparty-149077-min.jpg",
-        "typeEvent":{"type":"Night Club", "genre":"Varied"}
-      },
-      {
         "name": "THE FAMILY PROD - PROGRE SUNSET SESSIONS - SOUNDEXILE",
         "date": [
           "Domingo 22 de Enero 2023 - 18:00 hrs."
@@ -3772,47 +3616,6 @@ const  getApi = async()=>{
           "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
         ],
         "image": "https://imagenes.passline.com/eventos/operacion-ciudad-aventura-191150-min.jpg",
-        "typeEvent":{"type":"Night Club", "genre":"Varied"}
-      },
-      {
-        "name": "martes 24 > Festival Alegría (+18)",
-        "date": [
-          "Martes 24 de Enero 2023 - 23:55 hrs."
-        ],
-        "location": "Pinamar\nAvenida Del Mar & Tobías",
-        "price": [
-          {
-            "tipoDeTicket": "Preventa 1 .-",
-            "precio": "$3.000.-"
-          },
-          {
-            "tipoDeTicket": "preventa 2 Ingreso al evento valido para hombre y mujer.",
-            "precio": "$4.000.-"
-          },
-          {
-            "tipoDeTicket": "preventa 3 Ingreso al evento valido para hombre y muer.",
-            "precio": "$6.000.-"
-          },
-          {
-            "tipoDeTicket": "preventa 4 Ingreso al evento valido para hombre y mujer.",
-            "precio": "$8.000.-"
-          },
-          {
-            "tipoDeTicket": "ultimas alegrias Ingreso al evento valido para hombre y mujer.",
-            "precio": "$10.000.-"
-          },
-          {
-            "tipoDeTicket": "Early Birds",
-            "precio": "$2.500.-"
-          }
-        ],
-        "description": [
-          "Pinamar Avenida Del Mar & Tobías",
-          "Pinamar     Avenida Del Mar & Tobías",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley.",
-          "Importante: Passline no se hace responsable de la calidad o satisfacción de los eventos publicados. Passline es un sistema que presta el servicio de venta de entradas online. Al usar este sitio usted acepta los términos y condiciones de la aplicación. Copyright © 2023 Passline."
-        ],
-        "image": "https://imagenes.passline.com/eventos/martes-24-festival-alegria-187619-min.jpg",
         "typeEvent":{"type":"Night Club", "genre":"Varied"}
       },
       {
@@ -3941,42 +3744,6 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Concert", "genre":"Pop"}
       },
       {
-        "name": "BRUJA SALGUERO-BRUNO ARIAS Y FACUNDO RAMIREZ.",
-        "date": [
-          "Viernes 19 de Enero 2023 - 18:00 hrs."
-        ],
-        "location": "LA CARPA (Parador La Caseta)\nDefensa 1575",
-        "price": [
-          {
-            "tipoDeTicket": "Preventa 4",
-            "precio": "$4.000.-"
-          },
-          {
-            "tipoDeTicket": "Preventa 4 - Pack x10 (40% OFF)",
-            "precio": "$24.000.-"
-          },
-          {
-            "tipoDeTicket": "Preventa 4 - Pack x2 (10% OFF)",
-            "precio": "$72.000.-"
-          },
-          {
-            "tipoDeTicket": "Preventa 4 - Pack x5 (20% OFF)",
-            "precio": "$16.000.-"
-          }
-        ],
-        "description": [
-          "Bruno Arias, Bruja Salguero y Facundo Ramírez, se presentan en el Torquato Tasso, en un show único!!!",
-
-          "Facundo Ramírez en piano, Bruno Arias en guitarra, la Bruja Salguero en percusión y la unión de estas magníficas voces, harán de esta presentación una noche inolvidable!",
-          
-          "Tres artistas, en un mismo escenario, no te lo podés perder!!",
-          "Los comentarios y/o textos ingresados son de exclusiva responsabilidad del Productor y/o Organizador del Evento. Passline no se hace responsable por declaraciones emitidas por estos en lo relativo a los Eventos. El Productor/Organizador es el único y exclusivo responsable de la producción y organización del Evento, en forma oportuna y en conformidad a la ley."
-        ],
-        "image": "https://www.passline.com/imagenes/eventos/bruja-salguerobruno-arias-y-facundo-ramirez-188821-min.jpg",
-        "imageBanner": "https://imagenes.passline.com/slider/slide-6031-6655.jpg",
-        "typeEvent":{"type":"Concert", "genre":"Tango"}
-      },
-      {
         "name": "Club 69 Super Sábado Enero en Niceto Club (+18)",
         "date": [
           "Viernes 14 de Enero 2023 - 18:00 hrs."
@@ -4039,7 +3806,7 @@ const  getApi = async()=>{
         "typeEvent":{"type":"Concert", "genre":"Tango"}
       },
       {
-        "name": "BANANARAMA en la AZOTEA 🍌🏳️‍🌈 🏳️‍⚧️ 2 Music Rooms✨ / Sábado 14.01 - Open 23:55hs #OpenAir (+18)",
+        "name": "BANANARAMA en la AZOTEA 🍌🏳️‍🌈 🏳️‍⚧️ 2 Music Rooms✨ (+18)",
         "date": [
           "Viernes 14 de Enero 2023 - 18:00 hrs."
         ],
