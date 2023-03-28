@@ -1,5 +1,37 @@
 import styled from "styled-components";
 
+
+export const Heading = styled.h1`
+   text-align: center;
+   color: green;
+`;
+  
+export const Content = styled.div`
+   overflowY: scroll;
+   height: 2500px;
+`;
+  
+export const Button = styled.div`
+   position: fixed; 
+   width: 100%;
+   left: 90%;
+   bottom: 70px;
+   height: 20px;
+   font-size: 3rem;
+   z-index: 1;
+   cursor: pointer;
+   color: rgb(101, 8, 143);
+   transition: .5s;
+
+   &:hover{
+
+    transition: .5s;
+    color: rgb(32, 170, 208);
+   }
+`
+
+
+
 ////////////Navbar//////////////
 
 export const NavBar = styled.div`
@@ -21,7 +53,7 @@ color:white;
 align-items: center;
 display: flex;
 width: 30vw;
-justify-content: space-between;
+gap: 30px;
 text-align: center;
 `
 
@@ -53,7 +85,7 @@ export const Searchbar = styled.input`
 
 export const H3 = styled.h3`
 color: white;
-padding: 30px;
+padding: 20px;
 
 &:hover {
   color:  #673c77;
@@ -147,6 +179,7 @@ height: 50px;
 export const CardE = styled.div`
     position: relative;
     display: inline-block;
+   
     height: 480px;
     width: 25vw;
   
