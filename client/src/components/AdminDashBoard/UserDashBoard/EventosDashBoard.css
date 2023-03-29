@@ -1,0 +1,99 @@
+.displayflex{
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+.tituloADB{
+
+    display: flex;
+    justify-content: center;
+}
+
+.contEventDB{
+  
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    
+
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+    
+}
+
+.divEvents346{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 350px;
+    
+}
+
+.divEvents346 p{
+
+    display: flex;
+    justify-content: center;
+}
+
+.tituloNEA{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break:break-all;
+    color: rgb(185, 107, 221);
+    font-size: 30px;
+
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    
+}
+/*--------------------------------------------------------------*/
+.m123{
+    
+    display: flex;
+    justify-content: center;
+
+}
+
+.imgADB{
+
+    width: 278px;
+    height: 300px;
+    border-radius: 10%;
+
+}
+
+
+/*---------------------------------------------------------*/
+
+.divBoton2{
+
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    width: 200px;
+}
+
+.btnPrice2{
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: solid 2px rgb(86, 62, 132);
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+    
+}
+
+.btnPrice2:hover{
+
+    color: rgb(38, 183, 223);
+    border: solid 2px rgb(32, 170, 208);
+    transition: .5s;
+}

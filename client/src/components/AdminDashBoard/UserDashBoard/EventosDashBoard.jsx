@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserEvents, eventUpdate } from "../../../Redux/actions";
 import { Link } from "react-router-dom";
+import "./EventosDashBoard.css";
 
 export default function EventosDashBoard ({idUser}){
 
@@ -40,41 +41,45 @@ export default function EventosDashBoard ({idUser}){
 
         <div>
 
-            <h1>Eventos</h1>
+            <h1 className="tituloADB">Eventos</h1>
 
-            <span>Nombre</span>
-            <span>Fecha</span>
-            <span>Ubicacion</span>
-            <span>Precio</span>
-            <span>Imagen</span>
-            <span>Descripcion</span>
-            <span>tipo Evento</span>
-            <span>Publicado/Eliminado</span>
+            <div className="displayflex">
 
-            {
-                events.length > 0 ? 
+                <div className="contEventDB">
 
-                    events.map(e =>
+                    {
+                        events.length > 0 ? 
 
-                        <div>
-                                
-                            <h3>{e.name}</h3>
-                            <p>Fecha: {e.date}</p>
-                            <p>Ubicacion: {e.location}</p>
-                            <p>Tipo de ticket: {e.price[0].tipoDeTicket}, ${e.price[0].precio}</p>
-                            <img src={e.image} alt="" styles={{'border-radius' : '10px', 'margin-left' : '3vw'}} width={278} height={300}/>
-                            <p>{e.description}</p>
-                            <p>Tipo de evento: {e.typeEvent.genre}</p>
-                            {e.isDelete ? <button onClick={()=> handlePost(e.id)}>Publicar Evento</button> :<button onClick={()=> handleDelete(e.id)}>Eliminar Evento</button>}
-                            
-                            <Link to={'/home/' + e.id}>Ver Más</Link>
-   
-                        </div>)
+                            events.map(e =>
 
-                    :
-                
-                <p>Usuario sin Eventos</p>
-            }
+                                <div className="divEvents346">
+                                            
+                                    <div className="tituloNEA">{e.name}</div>
+                                    <p>Fecha: {e.date}</p>
+                                    <p>Ubicacion: {e.location}</p>
+                                    <p>Tipo de ticket: {e.price[0].tipoDeTicket}, ${e.price[0].precio}</p>
+                                    <div className="m123"><img className="imgADB" src={e.image} alt="" styles={{'border-radius' : '10px', 'margin-left' : '3vw'}} /></div>
+                                    <p>{e.description}</p>
+                                    <p>Tipo de evento: {e.typeEvent.genre}</p>
+            
+                                    <div className='divBoton2'>
+
+                                        {e.isDelete ? <input className='btnPrice2' type={"button"} onClick={()=> handlePost(e.id)} value={"Publicar Evento"}/> : <input className='btnPrice2' type={"button"}onClick={()=> handleDelete(e.id)} value={"Eliminar Evento"}/>}
+                                        
+                                        <Link to={'/home/' + e.id}><input type={"button"} className='btnPrice2' value={"Ir a la publicacion"} /></Link>
+                                        
+                                    </div>  
+                                    
+                                </div> )   
+
+                            :
+                        
+                        <p className="pTP">Usuario sin Eventos</p>
+                    }
+
+                </div>
+            </div>
+
                 
 
         </div>
