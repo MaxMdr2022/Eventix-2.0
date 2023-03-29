@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { paymentHandler } from "../../../Redux/actions";
-
+import "./TicketDashBoard.css";
 
 
 export default function TicketDashBoard ({userId}) {
@@ -28,93 +28,188 @@ export default function TicketDashBoard ({userId}) {
 
         <div>
 
-            <h1>Tickets del Usuario</h1>
+            <h2 className="tituloTP">Tickets del Usuario</h2>
 
 
             {
-                ticket.length > 0 ? 
+                ticket.length > 0 ?
 
                     <div>
 
                         <div>
+                            <h2 className="tickPagos">Tickets Pagos</h2>
+                            
+                            <div className="contTP">
 
-                            <h3>Tickets Pagos</h3>
-                            {
-                                ticketPago.length > 0 ? 
+                                {/*<div className="contTickPago">
 
-                                    ticketPago.map(e => 
-                                        <div>
-                                            <p>Event: {e.ticket.event}</p> 
-                                        
-                                            <p>Precio: {e.ticket.price}</p>
+                                    <p>Evento: soda stereo</p> 
+                                
+                                    <p>Precio: $4000</p>
 
-                                            <p>Tipo de ticket: {e.ticket.typeTicket}</p>
-                        
-                                            <img src={e.QR} alt='' /> 
+                                    <p>Tipo de ticket: Entrada general</p>
 
-                                        </div>
-                                    ): 
+                                    <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                    
+                                    
+                                </div>
 
-                                <p>Usuario sin tickets pagos</p>
-                            }
+                                }{
+                                <div className="contTickPago">
+
+                                    <p>Evento: soda stereo</p> 
+                                
+                                    <p>Precio: $4000</p>
+
+                                    <p>Tipo de ticket: Entrada general</p>
+
+                                    <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                    
+                                    
+                                </div>*/}
+                              
+
+                                {
+                                    ticketPago.length > 0 ? 
+
+                                        ticketPago.map(e => 
+                                            <div className="contTickPago">
+                                                <p>Event: {e.ticket.event}</p> 
+                                            
+                                                <p>Precio: {e.ticket.price}</p>
+
+                                                <p>Tipo de ticket: {e.ticket.typeTicket}</p>
+                            
+                                                <img className="qr" src={e.QR} alt='' /> 
+
+                                            </div>
+                                        ): 
+
+                                    <p className="pTP">Usuario sin tickets pagos</p>
+                                }
+
+                            </div>
+                        </div>    
+
+
+                        <div>
+
+                            <h2 className="tickPagos">Tickets Pendientes de Pago</h2>
+                            <div className="contTP">
+
+                                {/*<div className="contTickPago">
+
+                                    <p>Evento: soda stereo</p> 
+                                
+                                    <p>Precio: $4000</p>
+
+                                    <p>Tipo de ticket: Entrada general</p>
+
+                                    <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                    
+                                    
+                                </div>
+
+                                }{
+                                <div className="contTickPago">
+
+                                    <p>Evento: soda stereo</p> 
+                                
+                                    <p>Precio: $4000</p>
+
+                                    <p>Tipo de ticket: Entrada general</p>
+
+                                    <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                    
+                                    
+                                </div>
+                                */}
+
+                                {
+                                    ticketPendiente.length > 0 ? 
+
+                                        ticketPendiente.map(e => 
+                                            <div className="contTickPago">
+                                                <p>Event: {e.ticket.event}</p> 
+                                            
+                                                <p>Precio: {e.ticket.price}</p>
+
+                                                <p>Tipo de ticket: {e.ticket.typeTicket}</p>
+
+                                                <img className="qr" src={e.QR} alt='' /> 
+
+                                            </div>
+                                        ): 
+
+                                    <p className="pTP">Usuario sin tickets pendientes</p>
+                                }
+                            </div>    
+
 
                         </div>
 
 
                         <div>
+                            <h2 className="tickPagos">Tickets Pago Cancelado</h2>
 
-                            <h3>Tickets Pendientes de Pago</h3>
-                            {
-                                ticketPendiente.length > 0 ? 
+                            <div className="contTP">
 
-                                    ticketPendiente.map(e => 
-                                        <div>
-                                            <p>Event: {e.ticket.event}</p> 
-                                        
-                                            <p>Precio: {e.ticket.price}</p>
+                                {/*<div className="contTickPago">
 
-                                            <p>Tipo de ticket: {e.ticket.typeTicket}</p>
+                                    <p>Evento: soda stereo</p> 
+                                
+                                    <p>Precio: $4000</p>
 
-                                            <img src={e.QR} alt='' /> 
+                                    <p>Tipo de ticket: Entrada general</p>
 
-                                        </div>
-                                    ): 
+                                    <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                    
+                                    
+                                </div>
 
-                                <p>Usuario sin tickets pendientes</p>
-                            }
+                                }{
+                                <div className="contTickPago">
 
-                        </div>
+                                    <p>Evento: soda stereo</p> 
+                                
+                                    <p>Precio: $4000</p>
 
+                                    <p>Tipo de ticket: Entrada general</p>
 
-                        <div>
-                            <h3>Tickets Pago Cancelado</h3>
-                            {
-                                ticketCancelado.length > 0 ? 
+                                    <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                    
+                                    
+                                </div>
+                                */}
 
-                                    ticketCancelado.map(e => 
-                                        <div>
-                                            <p>Event: {e.ticket.event}</p> 
-                                        
-                                            <p>Precio: {e.ticket.price}</p>
+                                {
+                                    ticketCancelado.length > 0 ? 
 
-                                            <p>Tipo de ticket: {e.ticket.typeTicket}</p>
+                                        ticketCancelado.map(e => 
+                                            <div className="contTickPago">
+                                                <p>Event: {e.ticket.event}</p> 
+                                            
+                                                <p>Precio: {e.ticket.price}</p>
 
-                                            <img src={e.QR} alt='' /> 
+                                                <p>Tipo de ticket: {e.ticket.typeTicket}</p>
 
-                                        </div>
-                                    ): 
+                                                <img className="qr" src={e.QR} alt='' /> 
 
-                                <p>Usuario sin tickets Cancelados</p>
-                            }
+                                            </div>
+                                        ): 
+
+                                    <p className="pTP">Usuario sin tickets Cancelados</p>
+                                }
+                            </div>
 
                         </div>
 
                     </div> 
 
                     
-                  :
+                    :
                   
-                <p>Usuario sin tickets</p>
+                <p className="pTP1">Usuario sin tickets</p>
             }
 
         </div>
