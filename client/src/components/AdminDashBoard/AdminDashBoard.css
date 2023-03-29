@@ -1,0 +1,67 @@
+.contNavAd{
+
+    display: grid;
+    grid-template-columns: repeat(8, 156px);
+    justify-content: center;
+   
+}
+
+.contNavAd > div {
+
+    border: solid 1px white;
+    display: flex;
+    justify-content: center;
+    /* padding: 10px; */
+
+    /* padding-left: 40px; */
+    /* padding-right: 40px; */
+}
+/*-------------------------------------------------------------*/
+.tituloAdmPan{
+
+    position: relative;
+    left: 30px;
+}
+
+/*-------------------------------------------------------------*/
+.contAdm{
+
+    display: grid;
+    grid-template-columns: repeat(8, 156px);
+    justify-content: center;
+    /* border-bottom: solid 3px rgb(250, 250, 250); */
+    column-rule: 3px solid green;
+    
+}
+
+.contAdm > div {
+
+    border-left: solid 1px rgb(254, 254, 255);
+    border-bottom: solid 1px rgb(255, 255, 255);
+    border-right: solid 1px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    
+}
+
+.puntitoss{
+
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.imgAdm{
+
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
+.contAdm p{
+    
+    /* border: solid 1px rgb(190, 206, 21); */
+}

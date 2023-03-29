@@ -4,6 +4,13 @@ import Navbar from "../Navbar/Navbar";
 import { getUsers } from "../../Redux/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 import MensajeLogeo from "../MensajeLogeo/MensajeLogeo";
+import { Link } from "react-router-dom";
+import "./AdminDashBoard.css"
+
+
+
+
+
 
 export default function AdminDashBoard (){
 
@@ -57,36 +64,38 @@ export default function AdminDashBoard (){
         <div>
             <Navbar/>
 
-            <h1>Panel Administrador</h1>
+            <h1 className="tituloAdmPan">Panel Administrador</h1>
 
-            <div>
+            <div className="contNavAd">
 
-                <span>Nombre </span>
-                <span> Apellido </span>
-                <span> Nick </span>
-                <span> E-mail </span>
-                <span> Administrador </span>
-                <span> Imagen </span>
-                <span> Ver más </span>
+                <div>Nombre </div>
+                <div> Apellido </div>
+                <div> Nick </div>
+                <div> E-mail </div>
+                <div> Administrador </div>
+                <div> Imagen </div>
+                <div>Usuario Baneado</div>
+                <div> Ver más </div>
             </div>
             
-            <div>
+            <div >
 
                 {
                     users.length > 0 ? users.map((e, i) => {
 
                         return(
 
-                            <div key={i}>
+                            <div className="contAdm" key={i}>
     
-                                <span>{e.first_name}</span>
-                                <span> {e.last_name} </span>
-                                <span> {e.nick} </span>
-                                <span> {e.email} </span>
-                                <span> {e.isAdmin ? <span>true</span> :<span>false</span> } </span>
-                                <img src={e.image} alt='' />
-                                <span> <a href={`/userdashboard/${e.id}`}>Ver más</a> </span>
-                            
+                                <div><p className="puntitoss">{e.first_name}</p></div>
+                                <div><p className="puntitoss">{e.last_name}</p></div>
+                                <div><p className="puntitoss">{e.nick}</p>  </div>
+                                <div ><p className="puntitoss">{e.email}</p>  </div>
+                                {e.isAdmin ? <div>true</div> :<div>false</div> } 
+                                <div><img className="imgAdm"  src={e.image} alt='' /></div>
+                                {e.isBanned ? <div>true</div> : <div> false</div>}
+                                <div className='divBoton'><Link to={`/userdashboard/${e.id}`}><input type={"button"} className='btnPrice' value={"Ver más"}/></Link></div>
+                                
                             </div>
                         )
                         
