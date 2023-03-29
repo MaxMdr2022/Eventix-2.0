@@ -129,66 +129,91 @@ export default function UserDashBoard (){
 
                 return (
 
-                    <div>
-                        <h2>Editar Perfil</h2>
+                    <div className="divCont853">
+                        <h2 className="tituloPerfil"> Editar Perfil 📝</h2>
 
-                        <p>e-mail: {e.email}</p>
+                        <div className="emailCont">
+
+                            <p className="emailP">e-mail: </p>
+
+                            <div className="emailBar">
+                                <p className="email2">{e.email}</p>
+                            </div> 
+                        </div>
 
                         <form >
-                            <div>
-                                <label>Nombre: </label>
-                                <input placeholder={e.first_name} name={"first_name"} type="text" value={userEdit.first_name} onChange={(e)=>handleChange(e)}  />
-                            </div>
 
-                            <div>
-                                <label>Apellido: </label>
-                                <input placeholder={e.last_name} name={"last_name"} type="text" value={userEdit.last_name} onChange={(e)=>handleChange(e)} />
-                            </div>
-
-                            <div>
-                                <label>Nick: </label>
-                                <input placeholder={e.nick} name={"nick"} type="text" value={userEdit.nick} onChange={(e)=>handleChange(e)} />
-                            </div>
-                            <div>
-                                {e.email === "drum_94@live.com.ar" ? null :
-
-                                    <div>
-                                        <label>Admin: </label>
-                                        {
-                                            e.isAdmin ? <button onClick={(e)=>handleRemoveAdmin(e)}>Quitar Admin</button> : <button onClick={(e)=>handleIsAdmin(e)}>Asignar Admin</button>
-                                        }
-                                    </div>
-                                }
-                                
-                            </div>
-                            <div>
-                                {e.email === "drum_94@live.com.ar" ? null :
-
-
-                                    <div>
-                                        <label>Ban: </label>
-                                        {
-                                            e.isBanned ? <button onClick={(e)=>handleRemoveBanned(e)}>Desbanear Usuario</button> : <button onClick={(e)=>handleIsBanned(e)}>Banear Usuario</button>
-                                        }
-                                    </div>
-                                }
-                                
-                                
-                            </div>
-                            <div>
-                                <label>Imagen: </label>
-                                <img src={e.image} alt='' />
-                                <input placeholder={e.image} name={"image"} type="text" value={userEdit.image} onChange={(e)=>handleChange(e)} />
-                            </div>
-
-                            {e.email === "drum_94@live.com.ar" ? null :
+                            <div className="cont654">
 
                                 <div>
 
-                                    <button type="submit" onClick={(e)=>handleSubmit(e)}>Guardar</button>
-                                    <button onClick={(e)=>cancel(e)}>Cancelar</button>
+                                    <div className="contSet" >
+                                        <input className='setInp' placeholder={e.first_name} name={"first_name"} type="text" value={userEdit.first_name} onChange={(e)=>handleChange(e)}  />
+                                        <label className='setLab'>Nombre: </label>
+                                    
+                                    </div>
+
+                                    <div className="contSet" >
+                                        <input className='setInp' placeholder={e.last_name} name={"last_name"} type="text" value={userEdit.last_name} onChange={(e)=>handleChange(e)} />
+                                        <label className='setLab'>Apellido: </label>
+                                    
+                                    </div>
+
+                                    <div className="contSet" >
+                                        <input className='setInp' placeholder={e.nick} name={"nick"} type="text" value={userEdit.nick} onChange={(e)=>handleChange(e)} />
+                                        <label className='setLab'>Nick: </label>
+                                    
+                                    </div>
+
+                                    <div>
+                                    <div className="contSet" >
+
+                                        <input className='setInp' placeholder={e.image} name={"image"} type="text" value={userEdit.image} onChange={(e)=>handleChange(e)} />
+                                        <label className='setLab'>Imagen: </label>
+                                    </div>
+
+                                        {e.email === "drum_94@live.com.ar" ? null :
+
+                                            <div className="btnAdmin23">
+                                                <label>Admin: </label>
+                                                {
+                                                    e.isAdmin ? <input className='btnPrice' type={"button"} onClick={(e)=>handleRemoveAdmin(e)} value={"Quitar Admin"}/> :  <input className='btnPrice' type={"button"} onClick={(e)=>handleIsAdmin(e)} value={"Asignar Admin"}/> 
+                                                }
+                                            </div>
+                                        }
+                                        
+                                    </div>
+                                    <div>
+                                        {e.email === "drum_94@live.com.ar" ? null :
+
+
+                                            <div  className="btnAdmin232">
+                                                <label >Ban: </label>
+                                                {
+                                                    e.isBanned ? <input className='btnPrice' type={"button"} onClick={(e)=>handleRemoveBanned(e)} value={"Desbanear Usuario"}/> : <input className='btnPrice' type={"button"}  onClick={(e)=>handleIsBanned(e)} value={"Banear Usuario"}/> 
+                                                }
+                                            </div>
+                                        }
+                                        
+                                        
+                                    </div>
+
                                 </div>
-                            }
+                                
+                                <div className="imagenSet">
+                                    <img className="imgSet" src={e.image} alt='' />
+                                </div>
+
+                                {e.email === "drum_94@live.com.ar" ? null :
+
+                                    <div className="botonesSet">
+                                        <input className='btnPrice' type={"submit"} onClick={(e)=>handleSubmit(e)} value={"Guardar Cambios"}/>
+                                        <input className='btnPrice' type={"button"} onClick={(e)=>cancel(e)} value={"Cancelar Cambios"}/>
+                                        
+                                    </div>
+                                }
+                            </div>
+                            
                             
                             
                         </form>
