@@ -38,9 +38,11 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     /* position: relative; */
     color: black;
+
+    
 }
 
 .form_input{
@@ -51,6 +53,7 @@
     border-radius: 5px;
     border: 0;
     outline: solid 2px rgb(86, 62, 132);
+    color: rgb(86, 62, 132);
 }
 
 .form_label{
@@ -90,6 +93,30 @@
     transition: .5s;
     font-size: 15px;
 }
+.form_input_date{
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px rgb(86, 62, 132);
+
+}
+
+.form_input_date::placeholder{
+
+    /* color: rgb(101, 8, 143);*/
+    font-size: 15px;
+    /*top:-20px; */
+    position: absolute;
+    top: 7px;
+    left: 1rem;
+    background: none;
+    padding: 0 .5rem ;
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+}
 
 .form_label_date{
 
@@ -111,6 +138,7 @@
     border: solid 2px rgb(86, 62, 132);
     color:  rgb(101, 8, 143);
     transition: .5s;
+    
 }
 
 .btnPrice:hover{
@@ -124,3 +152,74 @@ input:invalid{
 
     border: solid 3px rgb(230, 37, 60);
 }
+
+ /* select{
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0!important;
+    background: #5c6664;
+    background-image: none;
+} */
+
+select::-ms-expand{
+
+    display: none;
+
+}
+
+.form_box_select{
+
+    /* position: relative;
+    padding: 1rem; */
+
+    /* display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: .25em; */
+    /* padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px rgb(86, 62, 132); */
+
+    position: relative;
+    padding: 1rem;
+}
+
+/* .form_box_select select{
+
+    flex:1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+} */
+
+/* .form_box_select::after{
+
+    content: "\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #000;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+} */
+
+
+.errorC{
+
+    color: red;
+}
+
+
+/*---------------------------------------------------------------------*/
+

@@ -34,7 +34,7 @@ export default function CrearEvento () {
     const { isAuthenticated } = useAuth0();
 
     const userId = Object.keys(user).length > 0 ? user.user.id : null
-
+    // console.log("date",selectedDate)
     useEffect(() => {
         setValue('userId', userId)
     }, [setValue, userId])
@@ -57,8 +57,13 @@ export default function CrearEvento () {
             month: "long",
             year: "numeric",
         });
-        // console.log("date", selectedDate)
-        setValue("date", formattedDate);
+
+        const formattedDate2 = formattedDate.split(" ").reverse();
+        formattedDate2.splice(1, 1);
+        // console.log("date", formattedDate2.reverse().join(" ").replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase()))
+        const da ="Fecha " + formattedDate2.reverse().join(" ").replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+
+        setValue("date", da);
     }
 
     const onSubmit = (data) => {
@@ -115,56 +120,27 @@ export default function CrearEvento () {
                     <form autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
 
 
-                        {errors.name &&
-                        
-                            <div className='form_box'>
-                                
-                                <input className='form_input' id='textName' placeholder='Debe ingresat un nombre' type="text" {...register('name', {
-                                required: true,
-                                })} />
-                                
-                                
-                            </div>
-                        }
-                        {!errors.name &&
-                            <div className='form_box'>
-                                
-                                <input className='form_input' id='textName' placeholder=' ' type="text" {...register('name', {
-                                required: true,
-                                })} />
-                                <label className='form_label' for="textName" >Nombre2</label>
-                                {errors.name && <p>This field is required</p>}
-                            </div>
-                        }
-
-
-
-
-
-
-
-
                         <div className='form_box'>
                             
                             <input className='form_input' id='textName' placeholder=' ' type="text" {...register('name', {
                             required: true,
                             })} />
                             <label className='form_label' for="textName" >Nombre</label>
-                            {errors.name && <span>This field is required</span>}
+                            {errors.name && <span className='errorC'>Este campo es obligatorio</span>}
                         </div>
 
                         <div className='form_box'>
 
                             <input className='form_input' id='textImage' placeholder=' ' type="text" {...register('image', { required: true })} />
                             <label className='form_label' for="textImage">URL Imagen</label>
-                            {errors.image && <span>This field is required</span>}
+                            {errors.image && <span className='errorC'>Este campo es obligatorio</span>}
                         </div>    
                     
                         <div className='form_box'>
 
                             <DatePicker 
                             
-                            className='form_input'
+                            className='form_input_date'
                             name="date"
                             {...register('date', { required: true })}
                             placeholderText='Fecha del Evento '
@@ -173,8 +149,8 @@ export default function CrearEvento () {
                             withPortal
                             locale="es"/>
                             
-                            <label className='form_label_date' for="textDate">Fecha</label>
-                            {errors.date && <span>This field is required</span>}
+                            {selectedDate ? <label className='form_label_date' for="textDate">Fecha</label> : null}
+                            {errors.date && <span className='errorC'>Este campo es obligatorio</span>}
                         </div>    
 
                         <div className='form_box'>
@@ -182,22 +158,22 @@ export default function CrearEvento () {
                             
                             <input className='form_input' id='textLocation' placeholder=' ' type="text" {...register('location', { required: true })} />
                             <label className='form_label' for="textLocation">Ubicacion</label>
-                            {errors.location && <span>This field is required</span>}
+                            {errors.location && <span className='errorC'>Este campo es obligatorio</span>}
                         </div>
 
-                        <div className='form_box'>
-                            <label>Genre</label>
-                            <select name="" id="">
-                            <option value="">select</option>
-                            {eventype.map((type, i) => {
-                                return <option key={i} value={type} {...register('typeEvent.genre', {required: true})}>{type}</option>
-                            })}
+                        <div className='form_box_select'>
+                            
+                            <select className='form_input' name="" id="">
+                                <option value="" selected disabled>seleccionar genero</option>
+                                {eventype.map((type, i) => {
+                                    return <option key={i} value={type} {...register('typeEvent.genre', {required: true})}>{type}</option>
+                                })}
                             </select>
-                            {errors.typeEvent && <span>This field is required</span>}
+                            <label className='form_label'>Genre</label>
+                            {errors.typeEvent && <span className='errorC'>Este campo es obligatorio</span>}
                         </div>
                         
                         <div className='form_box'>
-
                             
                             <textarea className='form_input' id='textDescription' placeholder=' ' type="text" {...register('description')}></textarea>
                             <label className='form_label' for="textDescription">Description</label>
@@ -215,9 +191,9 @@ export default function CrearEvento () {
 
                         <div className='form_box'>
 
-                                <button className='btnPrice' type='submit'>Publicar</button>
-                            </div>
-                        <input type="submit" value='Create'/>
+                            <input className='btnPrice' type="submit" value='Publicar'/>
+                        </div>
+                        {/*<button className='btnPrice' type='submit'>Publicar</button>*/}
                     
                     </form>
                 </div>
