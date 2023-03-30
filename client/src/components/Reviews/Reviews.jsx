@@ -30,7 +30,7 @@ export default function Reviews({reviews}) {
 
     return (
     <div>
-        <H1>Reviews</H1>
+        <H1>Comentarios</H1>
         
           {
            reviewFilter.length > 0 ?
@@ -42,13 +42,16 @@ export default function Reviews({reviews}) {
                     <Rating readonly={true} initialValue={review.stars} />
                     <p>{review.text}</p>
 
-                    {idUsuario === review.userId || admin ? <button onClick={()=> handleDelete(review.id)}>Eliminar Comentario</button> : null}
+                    <div className='form_box posCR'>
+
+                    {idUsuario === review.userId || admin ?<input className='btnPrice' onClick={()=> handleDelete(review.id)} type="submit" value='Eliminar Comentario'/>: null}
+                    </div>
                 </div>
             )
             
            })} 
            </Carousel>
-           : <H5>This event has no reviews</H5>
+           : <H5 className='posCR' >Este evento no tiene comentarios</H5>
         }
         
         
