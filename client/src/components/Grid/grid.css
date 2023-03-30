@@ -1,3 +1,29 @@
+
+.tituloFiltrado{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    top: 200px;
+}
+
+.tituloFiltrado h1{
+
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+.gridItem{
+
+    display: flex;
+}
+
+
+/*------------------------------------------------*/
 .err{
     display: flex;
     justify-content: center;
@@ -10,4 +36,27 @@
 
 ::-webkit-scrollbar {
     display: none;
-    }
+}
+
+.contGrid01{
+
+   margin-top: 150px;
+}
+
+.tagP{
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.carousel .control-dots {
+    display: none;
+}
+
+/*----------------------------------------------------*/
+
+.noEvento{
+
+    padding-top: 50px;
+    height: 500px;
+}
