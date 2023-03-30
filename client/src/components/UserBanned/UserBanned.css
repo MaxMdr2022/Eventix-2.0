@@ -1,0 +1,18 @@
+.ban{
+    height: 100%;
+    /* transform: translate(50%, 50%); */
+}
+
+.ban h2{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ban p{
+
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
