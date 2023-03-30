@@ -5,6 +5,7 @@ import {useForm, } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { createReview } from '../../Redux/actions'
 import {useSelector} from 'react-redux'
+import "./createReview.css"
 
 export default function Review({event, updateComponent}) {
     const dispatch = useDispatch();
@@ -46,23 +47,34 @@ export default function Review({event, updateComponent}) {
     }
 
   return (
-    <FormReview onSubmit={handleSubmit(onSubmit)}>
-        <H1>Leave us you review</H1>
-        <div>
-           <h3>Title</h3>
-           <input type="text" {...register('title')}/> 
+    <form onSubmit={handleSubmit(onSubmit)}>
+
+        <h1 className='OpiDE'>Opiniones del evento</h1>
+        
+
+        <div className='form_box posCR'>
+                            
+            <input className='form_input' id='textName' placeholder=' ' type="text" {...register('title')} />
+            <label className='form_labelCR' for="textName" >Titulo</label>
+        
         </div>
-        <div>
+        
+
+        <div className='estrellasP'>
             <Rating initialValue={stars} onClick={handleRating} allowFraction={true} transition={true}/>
         </div>
-        <div>
-            <h3>description</h3>
-            <textarea type="text" {...register('text')}></textarea>
+        
+        <div className='form_box posCR'>
+                            
+            <textarea className='form_input' id='textDescription' placeholder=' ' type="text" {...register('text')}></textarea>
+            <label className='form_labelCR' for="textDescription">Description</label>
         </div>
-        <div>
-            <button>Rate</button>
-            <button onClick={handleReset}>Reset</button>
-        </div> 
-    </FormReview>
+
+        <div className='form_box posF'>
+
+            <input className='btnPrice ' type="submit" value='Enviar'/>
+            <input className='btnPrice' onClick={handleReset} type="submit" value='Cancelar'/>
+        </div>
+    </form>
   )
 }
