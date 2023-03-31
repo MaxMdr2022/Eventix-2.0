@@ -6,6 +6,7 @@ import { paymentHandler, notificationPayment} from "../../../Redux/actions"
 import { useAuth0 } from "@auth0/auth0-react"
 import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo"
 import UserBanned from "../../UserBanned/UserBanned"
+import "./Tickets.css";
 
 export default function Tickets (){
 
@@ -58,28 +59,64 @@ export default function Tickets (){
 
         <div>
             <Navbar/>
-            <NavBarPerfil/>
 
-            <h2>🤩 Mis Entradas 🎟 😄</h2>
-            {ticketsPurchased.length > 0 ? 
-            
-                ticketsPurchased.map(e =>
-                    
+            <div className="contPerfil">
+
+
+                <NavBarPerfil/>
+
+                <div>
+
                     <div>
-                        <p>Event: {e.ticket.event}</p> 
-                    
-                        <p>Precio: {e.ticket.price}</p>
 
-                        <p>Tipo de ticket: {e.ticket.typeTicket}</p>
-    
-                        { e.ticket.paymentMade === true ? <img src={e.QR} alt='' /> : <p>Pending Payment...</p>}
+                        <h2 className="tituloPerfil">🤩 Mis Entradas 🎟 😄</h2>
+
+                        <div className="contTicket">
+
+
+                            {/*<div>
+                                <p>Evento: soda stereo</p> 
+                            
+                                <p>Precio: $4000</p>
+
+                                <p>Tipo de ticket: Entrada general</p>
+
+                                <img className="qr" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/2048px-Codigo_QR.svg.png"} alt='' /> 
+                                  
+                                <p>Pago pendiente...</p>
+
+                            </div>
+
+                            <p>Sin tickets</p>*/}
+
+                            {ticketsPurchased.length > 0 ? 
+
+                                ticketsPurchased.map(e =>
+                                    
+                                    <div>
+                                        <p>Evento: {e.ticket.event}</p> 
+                                    
+                                        <p>Precio: {e.ticket.price}</p>
+
+                                        <p>Tipo de ticket: {e.ticket.typeTicket}</p>
+
+                                        { e.ticket.paymentMade === true ? <img src={e.QR} alt='' /> : <p>Pago pendiente...</p>}
+
+                                    </div>
+                                ): 
+
+
+                                <p>Sin tickets</p>
+
+                            }
+                        </div>
+
 
                     </div>
-                ): 
-                <p>No tickets</p>
-        
-            }
 
+                </div>
+
+            </div>
 
         </div>
         
