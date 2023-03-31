@@ -31,12 +31,12 @@ export default function Map({direction}) {
   }
 
   return (
-    <div style={{width: "18vw", height: "40vh"}}>
-      <h3>Check location</h3>
+    <div style={{width: "450px", height: "400px"}}>
+      <h3 style={{ alignItems: "center"}}>Ubicacion</h3>
       <GoogleMap
       center={directionResponse}
       zoom={14}
-      mapContainerStyle={{width: "100%", height: "100%", "border-radius" : "20px"}}
+      mapContainerStyle={{width: "100%", height: "300px", "border-radius" : "20px"}}
       options={{
         zoomControl:false,
         streetViewControl:false,
