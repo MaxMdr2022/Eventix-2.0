@@ -1,0 +1,17 @@
+.cont346{
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+
+    width: auto;
+}
+
+
+.divBoton{
+
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+}
