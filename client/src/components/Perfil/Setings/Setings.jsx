@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo";
 import UserBanned from "../../UserBanned/UserBanned";
+import "./Setings.css"
 
 export default function Setings (){
     
@@ -88,45 +89,86 @@ export default function Setings (){
 
         <div>
             <Navbar/>
-            <NavBarPerfil/>
 
-            {Object.keys(user).length > 0  ? 
-            
+            <div className="contPerfil">
+                <NavBarPerfil/>
+
                 <div>
-                    <h2> Editar Perfil 📝</h2>
 
-                    <p>e-mail: {user.user.email}</p>
+                    <h2 className="tituloPerfil"> Editar Perfil 📝</h2>
 
-                    <form >
-                        <div>
-                            <label>Nombre: </label>
-                            <input placeholder={user.user.first_name} name={"first_name"} type="text" value={userEdit.first_name} onChange={(e)=>handleChange(e)}  />
-                        </div>
+                    <div>
 
-                        <div>
-                            <label>Apellido: </label>
-                            <input placeholder={user.user.last_name} name={"last_name"} type="text" value={userEdit.last_name} onChange={(e)=>handleChange(e)} />
-                        </div>
+                        {Object.keys(user).length > 0  ? 
+                        
+                            <div>
+                            
+                                
+                                <div className="emailCont">
 
-                        <div>
-                            <label>Nick: </label>
-                            <input placeholder={user.user.nick} name={"nick"} type="text" value={userEdit.nick} onChange={(e)=>handleChange(e)} />
-                        </div>
-                        <div>
-                            <label>Imagen: </label>
-                            <img src={user.user.image} alt='' />
-                            <input placeholder={user.user.image} name={"image"} type="text" value={userEdit.image} onChange={(e)=>handleChange(e)} />
-                        </div>
+                                    <p className="emailP">e-mail: </p>
 
-                        <button type="submit" onClick={(e)=>handleSubmit(e)}>Guardar</button>
-                        <button onClick={(e)=>cancel(e)}>Cancelar</button>
-                    </form>
+                                    <div className="emailBar">
+                                        <p className="email2">{user.user.email}</p>
+                                    </div> 
+                                </div>
+
+                                <form >
+
+                                    <div className="cont654">
+
+                                        <div>
+
+                                            <div className="contSet" >
+                                                
+                                                <input className='setInp' placeholder={user.user.first_name} name={"first_name"} type="text" value={userEdit.first_name} onChange={(e)=>handleChange(e)}  />
+                                                <label className='setLab'>Nombre: </label>
+                                            </div>
+
+                                            <div className="contSet">
+                                                
+                                                <input className='setInp' placeholder={user.user.last_name} name={"last_name"} type="text" value={userEdit.last_name} onChange={(e)=>handleChange(e)} />
+                                                <label className='setLab'>Apellido: </label>
+                                            </div>
+
+                                            <div className="contSet">
+                                                
+                                                <input className='setInp' placeholder={user.user.nick} name={"nick"} type="text" value={userEdit.nick} onChange={(e)=>handleChange(e)} />
+                                                <label className='setLab'>Nick: </label>
+                                            </div>
+                                            <div className="contSet">
+
+                                                <input className='setInp'  placeholder={user.user.image} name={"image"} type="text" value={userEdit.image} onChange={(e)=>handleChange(e)} />
+                                                <label className='setLab'>Imagen: </label>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div className="imagenSet">
+                                            <img className="imgSet" src={user.user.image} alt='' />
+                                        </div>
+                                        
+                                        <div className="botonesSet">
+                                            <input className='btnPrice' type={"submit"} onClick={(e)=>handleSubmit(e)} value={"Guardar Cambios"}/>
+                                            <input className='btnPrice' type={"button"} onClick={(e)=>cancel(e)} value={"Cancelar Cambios"}/>
+
+                                        </div> 
+                                    </div>
+                                    
+        
+                                </form>
+                                
+                            </div>
+                            
+                            : 
+                            <p>No se encuantra Usuario ...</p>
+                        }
+                    </div>
                     
                 </div>
                 
-                : 
-                <p>No se encuantra Usuario ...</p>
-            }
+            </div>
+            
         </div>
         
     )
