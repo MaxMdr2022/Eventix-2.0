@@ -40,3 +40,45 @@
     height : 4vh;
     border-radius : 10px;
 } */
+
+/*-------------------------------------------------------------------------------------*/
+
+.contPerfil{
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.contPerfilUser{
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.tituloPerfil{
+
+    padding-left: 100px;
+    margin: 0;
+}
+
+.imagen{
+
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    box-shadow: 3px 0px 40px  rgba(95, 234, 255, 0.551);
+}
+
+/* .c{
+    
+    display: flex;
+    flex-direction: column;
+
+
+    position: relative;
+    border: solid 1px red;
+    height: 100%;
+} */

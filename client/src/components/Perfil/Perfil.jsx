@@ -13,6 +13,7 @@ import NavBarPerfil from "./NavBarPerfil/NavBarPerfil";
 import { useAuth0 } from "@auth0/auth0-react";
 import MensajeLogeo from "../MensajeLogeo/MensajeLogeo";
 import UserBanned from "../UserBanned/UserBanned";
+import "../Perfil/Perfil.css"
 
 export default function Perfil () {
     
@@ -35,21 +36,36 @@ export default function Perfil () {
 
         return (
 
-            <div>
+            <div className="c">
                 <Navbar/>
-                <NavBarPerfil/>
 
-                <div>
-                    <h2>Perfil de {usuario.user?.nick}</h2>
+                <div className="contPerfil">
+                    <NavBarPerfil/>
 
-                    <img src={usuario.user?.image} alt='' />
+                    <div>
 
-                    <p>E-mail: {usuario.user?.email}</p>
+                        <h2 className="tituloPerfil">Perfil de {usuario.user?.nick}</h2>
 
-                    <p>Nombre: {usuario.user?.first_name}</p>
-                    <p>Apellido: {!usuario.user?.last_name.length > 0 ? "-" : usuario.user.last_name}</p>
-                    <p>Nick: {usuario.user?.nick}</p>
+                        <div className="contPerfilUser">
+                        
+
+                            <div>
+                                <img className="imagen" src={usuario.user?.image} alt='' />
+                            </div>
+                            
+                            <div>
+        
+                                <p>E-mail: {usuario.user?.email}</p>
+                                <p>Nombre: {usuario.user?.first_name}</p>
+                                <p>Apellido: {!usuario.user?.last_name.length > 0 ? "-" : usuario.user.last_name}</p>
+                                <p>Nick: {usuario.user?.nick}</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    
                 </div>
+                
 
             </div>
             
