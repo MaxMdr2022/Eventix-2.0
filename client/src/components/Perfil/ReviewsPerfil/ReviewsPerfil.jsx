@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo";
 import UserBanned from "../../UserBanned/UserBanned";
+import "./ReviewsPerfil.css"
+
 
 export default function ReviewsPerfil (){
 
@@ -56,29 +58,54 @@ export default function ReviewsPerfil (){
 
         <div>
             <Navbar/>
-            <NavBarPerfil/>
 
-            <h2> 🤓 Mis Comentarios 🤪</h2>
-            {reviewFilter.length > 0 ? 
-               
+            <div className="contPerfil">
 
-                reviewFilter.map(e =>
-                
+                <NavBarPerfil/>
+
+                <div>
+
+                    <h2 className="tituloPerfil">  Mis Comentarios 🤪</h2>
+
                     <div>
-                        <h3 style={{'text-align' : 'center'}}>{e.title}</h3>
-                        <Rating readonly={true} initialValue={e.stars} />
-                        <p style={{'text-align' : 'center'}}>{e.text}</p>
-                        <Link to={'/home/' + e.eventId}>Ir a la publicacion</Link>
-                        <button onClick={()=> handleDelete(e.id)}>Eliminar Comentario</button>
+
+                        {reviewFilter.length > 0 ? 
+                        
+
+                            reviewFilter.map(e =>
+                            
+                                <div className="cont346">
+                                    
+                                    <h3 style={{'text-align' : 'center'}}>{e.title}</h3>
+                                    <Rating readonly={true} initialValue={e.stars} />
+                                    <p style={{'text-align' : 'center'}}>{e.text}</p>
+
+
+                                    
+
+                                    <div className='divBoton'>
+
+                                        <Link to={'/home/' + e.eventId}><input type={"button"} className='btnPrice' value={"Ir a la publicacion"}/></Link>
+                                       
+                                        <input className='btnPrice' type={"button"} onClick={()=> handleDelete(e.id)} value={"Eliminar Comentario"}/>                                    
+                                    </div>
+                                    
+                                </div>
+                            )
+
+                            :
+                            <div className="cont346">
+                                <p>Sin Comentarios.</p>
+                            </div>
+
+                        }
                     </div>
-                )
+                    
+                </div>
+                
 
-                :
-
-                <p>No Reviews</p>
-
-            }
-
+            </div>
+            
         </div>
         
     )
