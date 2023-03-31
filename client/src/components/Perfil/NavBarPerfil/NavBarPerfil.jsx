@@ -1,4 +1,5 @@
 import React from "react";
+import "./NavBarPerfil.css";
 
 
 export default function NavBarPerfil (){
@@ -6,12 +7,12 @@ export default function NavBarPerfil (){
 
     return(
 
-        <div>
-            <p><a href="/perfil">Perfil</a></p>
-            <p><a href="/perfil/tickets">Tickets</a></p>
-            <p><a href="/perfil/reviews">Reviews</a></p>
-            <p><a href="/perfil/eventos">Eventos</a></p>
-            <p><a href="/perfil/setings">Setings</a></p>
+        <div className="conNavPerfil">
+            <a href="/perfil"><div className="btnNBP">Perfil</div></a>
+            <a href="/perfil/tickets"><div className="btnNBP">Tickets</div></a>
+            <a href="/perfil/reviews"><div className="btnNBP">Comentarios</div></a>
+            <a href="/perfil/eventos"><div className="btnNBP">Eventos</div></a>
+            <a href="/perfil/setings"><div className="btnNBP">Configuracion</div></a>
             
         </div>
     );
