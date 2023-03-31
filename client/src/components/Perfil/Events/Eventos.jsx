@@ -8,6 +8,7 @@ import Modal from "react-modal"
 import { useAuth0 } from "@auth0/auth0-react";
 import MensajeLogeo from "../../MensajeLogeo/MensajeLogeo";
 import UserBanned from "../../UserBanned/UserBanned";
+import "./Eventos.css";
 
 export default function Eventos (){
 
@@ -72,37 +73,56 @@ export default function Eventos (){
 
         <div>
             <Navbar/>
-            <NavBarPerfil/>
-            <h1>Mis Eventos 😎</h1>
 
-            {eventsFilter.length > 0 ?
+            <div className="contPerfil">
 
-                <div style={{display : 'flex'}}>
-                    
-                    {eventsFilter.map(e =>
+                <NavBarPerfil/>
 
-                        <div>
+                <div>
+                    <h2 className="tituloPerfil">Mis Eventos 😎</h2>
+
+                    <div>
+                        {eventsFilter.length > 0 ?
+
+                            <div className="cont4319">
                                 
-                            <h3>{e.name}</h3>
-                            <img src={e.image} alt="" styles={{'border-radius' : '10px', 'margin-left' : '3vw'}} width={278} height={300}/>
-                            <p>Fecha: {e.date}</p>
-                            <p>Ubicacion: {e.location}</p>
-                            <p>Tipo de ticket: {e.price[0].tipoDeTicket}, ${e.price[0].precio}</p>
-                            <p>Tipo de evento: {e.typeEvent.genre}</p>
-                            <p>{e.description}</p>
-                            <Link to={'/home/' + e.id}>Ver Más</Link>
-                            
-                            <button onClick={()=> openModal(e.id)}>Eliminar Evento</button>
-                            
-                        </div>
-                    
-                    )}
+                                {eventsFilter.map(e =>
+
+                                    <div className="cont346">
+                                            
+                                        <h2>{e.name}</h2>
+                                        <img src={e.image} alt="" styles={{'border-radius' : '10px', 'margin-left' : '3vw'}} width={278} height={300}/>
+                                        <p>Fecha: {e.date}</p>
+                                        <p>Ubicacion: {e.location}</p>
+                                        <p>Tipo de ticket: {e.price[0].tipoDeTicket}, ${e.price[0].precio}</p>
+                                        <p>Tipo de evento: {e.typeEvent.genre}</p>
+                                        <p style={{"textAlign":"center"}}>{e.description}</p>
+
+                                        <div className='divBoton'>
+                                            <Link to={'/home/' + e.id}><input type={"button"} className='btnPrice' value={"Ir a la publicacion"} /></Link>
+                                            <input className='btnPrice' type={"button"} onClick={()=> openModal(e.id)} value={"Eliminar Evento"}/>
+                                        
+                                        </div>    
+                                       
+                                        
+                                      
+                                        
+                                    </div>
+                                
+                                )}
+                                
+                            </div>
+                            : 
+                            <p>No events</p>
+
+                        }
+                    </div>
+
                     
                 </div>
-                : 
-                <p>No events</p>
-
-            }
+                
+            </div>
+            
 
 
             <div>
