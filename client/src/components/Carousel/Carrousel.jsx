@@ -16,17 +16,17 @@ export default function Carrousel() {
   const Human = Events.length ? Events.findIndex(event => event.name === "Sábado 28.01 - Maria Becerra") : null;
   // const Burda = Events.length ? Events.findIndex(event => event.name === "20.01 YSY (ATP)") : null;
   const newYear = Events.length ? Events.findIndex(event => event.name === "Bresh Enero en Niceto Club (+18)") : null;
-  const newYear2 = Events.length ? Events.findIndex(event => event.name === "BRUJA SALGUERO-BRUNO ARIAS Y FACUNDO RAMIREZ.") : null;
+  // const newYear2 = Events.length ? Events.findIndex(event => event.name === "BRUJA SALGUERO-BRUNO ARIAS Y FACUNDO RAMIREZ.") : null;
   const newYear3 = Events.length ? Events.findIndex(event => event.name === "Club 69 Super Sábado Enero en Niceto Club (+18)") : null;
   const newYear4 = Events.length ? Events.findIndex(event => event.name === "Fiesta Glamour Duque Mar Del Plata 13-1") : null;
-  const newYear5 = Events.length ? Events.findIndex(event => event.name === "BANANARAMA en la AZOTEA 🍌🏳️‍🌈 🏳️‍⚧️ 2 Music Rooms✨ / Sábado 14.01 - Open 23:55hs #OpenAir (+18)") : null;
+  const newYear5 = Events.length ? Events.findIndex(event => event.name === "BANANARAMA en la AZOTEA 🍌🏳️‍🌈 🏳️‍⚧️ 2 Music Rooms✨ (+18)") : null;
   const newYear6 = Events.length ? Events.findIndex(event => event.name === "DIXIT - ROMPER EL PARY ( GUSTY DJ ) (+18)") : null;
   const newYear7 = Events.length ? Events.findIndex(event => event.name === "ATERCIOPELADOS EN GROOVE") : null;
   const newYear8 = Events.length ? Events.findIndex(event => event.name === "sabado 21 ≈ REI en vivo @ufopoint") : null;
 
   return (
     <div className="carousel">
-      <H1>Main Events</H1>
+      <H1>Eventos Principales</H1>
       <Carousel showThumbs={false} infiniteLoop={true} interval={5000} autoPlay={true}>
           {/* <Link to={'/home/' + (Events.length ? Events[Human].id : null)}>
         <div>
@@ -55,15 +55,15 @@ export default function Carrousel() {
           {/*<p className="legend">{Events.length ? Events[2].name : null}</p>*/}
         </div>
         </Link>
-        <Link to={'/home/' + (Events.length ? Events[newYear2].id : null)}>
+        {/* <Link to={'/home/' + (Events.length ? Events[newYear2].id : null)}>
         <div>
           <img className="carouselimg"
             src={Events.length ? Events[newYear2].imageBanner : null}
             alt={Events.length ? Events[newYear2].name : null}
           />
-          {/*<p className="legend">{Events.length ? Events[2].name : null}</p>*/}
+          {/*<p className="legend">{Events.length ? Events[2].name : null}</p>*/}{/*
         </div>
-        </Link>
+        </Link> */}
         <Link to={'/home/' + (Events.length ? Events[newYear3].id : null)}>
         <div>
           <img className="carouselimg"
