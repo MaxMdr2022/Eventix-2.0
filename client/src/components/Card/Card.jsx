@@ -20,8 +20,8 @@ export default function Card({event}) {
             <img src={event.image} alt={event.name}/>
           </div>
           <div className='shadow'>
-            <div className='title'>
-            <p>{event.name}</p>
+            <div className='title21'>
+            <p className='puntitos'>{event.name}</p>
           </div>
           
           <div className='text'>
