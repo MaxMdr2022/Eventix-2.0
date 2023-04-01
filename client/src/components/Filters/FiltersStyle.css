@@ -1,0 +1,230 @@
+.searchBar{
+
+    position: absolute;
+    padding: 5px;
+    padding-right: 10px;
+}
+
+.searchBar input{
+
+    width: 150px;
+    height: 40px;
+    padding: 0 20px ;
+    font-size: 18px;
+    color: black;
+    outline: none;
+    border: 4px solid rgb(86, 62, 132);
+    border-radius: 30px;
+    transition: all .6s ease;
+}
+
+
+.searchBar:hover input{
+
+    width: 150px;
+    border: 4px solid rgb(32, 170, 208);
+}
+
+
+.searchBar input:focus{
+
+    width: 150px;
+    border: 4px solid rgb(32, 170, 208);
+
+}
+.cont3{
+    display: flex;
+    justify-content: right;
+    width: 240px;
+}
+/*-------------------------------------*/
+
+.cont00{
+
+    width: 100%;
+    height: 80px;
+}
+
+.cont1{
+    
+    padding: 5px;
+    /* left: -100%; */
+
+    height: 200px;
+}
+
+.btnFiltros{
+    position: relative;
+    width: 55px;
+    left: 10px;
+}
+
+.botonFiltros{
+
+    /* position: absolute; */
+    top: 0;
+    right: 0;
+    background: #440080;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    transition: all .6s ease;
+
+}
+
+.fas{
+
+    padding: 7px 9px 9px 7px;
+    filter:brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%) hue-rotate(338deg) brightness(112%) contrast(101%);
+}
+
+.botonFiltros:hover{
+
+    background: rgb(32, 170, 208);
+
+}
+
+
+/*-----------------------------------------------------------------------------------------*/
+.cont2{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+    left: -100%;
+    visibility: hidden;
+    transition: all .8s ease;
+
+    padding: 20px;
+    
+}
+
+
+#inputCheck{
+
+    display: none;
+}
+
+#inputCheck:checked + .cont2{
+
+    left: 0;
+    visibility: visible;
+}
+
+/* #inputCheck:checked  .botonFiltros{
+
+    background: rgb(32, 170, 208);
+} */
+
+/*----------------------------------------------------------------------------------------*/
+
+.form_input_date2{
+ 
+    text-align: center;
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px rgb(86, 62, 132);
+}
+
+.form_label_date2{
+    position: absolute;
+    top: -7px;
+    left: 2rem;
+    background: none;
+    padding: 0 0.5rem;
+    color: rgb(165 40 222);
+    transition: .5s;
+}
+
+/*----------------------------------------------------------------------------------------*/
+.form_input2{
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    border: 0;
+    outline: solid 2px rgb(86, 62, 132);
+    color: rgb(86, 62, 132);
+
+}
+
+.form_label2{
+
+    position: absolute;
+    top: 20px;
+    /* left: 2rem; */
+    
+    background: none;
+    padding: 0 .5rem ;
+    color:  rgb(165 40 222);
+    transition: .5s;
+}
+
+.form_box2{
+
+    position: relative;
+    padding: 1rem;
+}
+
+.form_input2:focus{
+
+    outline: solid 2px rgb(32, 170, 208);
+}
+
+.form_input2:focus+.form_label2{
+
+    transform: translateY(-2rem);
+    transition: .5s;
+    font-size: 15px;
+    color: rgb(38, 183, 223);
+}
+
+.form_input2:not(:placeholder-shown)+.form_label2{
+
+    /* background: yellow; */
+    transform: translateY(-1.6rem);
+    transition: .5s;
+    font-size: 15px;
+}
+
+/*------------------------------------------------------------------------*/
+
+.contButton{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.btnDate{
+
+    display: block;
+    position: relative;
+    /* margin-bottom: 2rem; */
+    top: 5px;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    border: solid 2px rgb(86, 62, 132);
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+    
+}
+
+.btnDate:hover{
+
+    color: rgb(38, 183, 223);
+    border: solid 2px rgb(32, 170, 208);
+    transition: .5s;
+}

@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import DatePicker from "react-datepicker";
+import DatePicker,  {registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { filter } from '../../Redux/actions';
 import { MenuFilter } from '../Styles/Styles';
+import "./FiltersStyle.css";
+import search from '../../assets/search.svg'
+import es from 'date-fns/locale/es';
 
 
 export default function Filters(check) {    //npm i react-datepicker
@@ -14,6 +17,8 @@ export default function Filters(check) {    //npm i react-datepicker
   const [stateDate, setStateDate] = useState(new Date());
 
   const [stateLocation, setStateLocation]= useState("");
+
+  registerLocale('es', es);
 
   // const [statePrice, setStatePrice] = useState({min:"", max:""});
 
@@ -95,7 +100,8 @@ export default function Filters(check) {    //npm i react-datepicker
   // console.log(stateDate);  
 
   function handleDate (date){
-
+   
+     // <--
     let meses = [
       "Enero", "Febrero", "Marzo",
       "Abril", "Mayo", "Junio", "Julio",
@@ -311,80 +317,119 @@ export default function Filters(check) {    //npm i react-datepicker
 
 
   return (
-    <MenuFilter>
-      {/* <input type={"checkbox"} id={"1"} value={1} onClick={e=>handleCheck(e)} className="mostrar-menu"/> */}
-      {/* <label>Search</label> */}
 
+    <div className='cont00'>
 
-        <div>
-          <input type={"text"} placeholder={`search...`} onChange={(e)=>submitName(e)}  value={state.name}   />
-        {/* <button onChange={submitNmae}>name</button>*/}
-        </div>
+      <div className='cont1'>
+        
+        
 
-        <div>
-
-          <DatePicker selected={stateDate}  onChange={(e) =>onChangeDate(e)}/>
-
-          <button onClick={()=>handleDate(stateDate)}>Filtrar</button>
-          <button onClick={(e)=>handleDeleteFilterDate(e)}>x</button>
+        <div className='btnFiltros'>
+          <label className='label21' for="inputCheck" ><div className='botonFiltros'><img src={search} alt="" className='fas'/></div></label>
         </div>
         
-        <div>
+        <input id='inputCheck' type={"checkbox"}/>
+        
+        <div className='cont2'>
 
-          <select onChange={(e)=>handleAge(e)}>
+          <div className='cont3'>
 
-            <option value={"false"}>Todas las edades</option>
-            <option value={"mayores"}>Mayores de edad</option>
-            <option value={"atp"}>Apto para menores</option>
-          </select>
+            <div className='searchBar'>
+              <input type={"text"} placeholder={`Buscar...`} onChange={(e)=>submitName(e)}  value={state.name}   />
+            </div>
+          </div>
+
+
+
+
+          {/* <input type={"checkbox"} id={"1"} value={1} onClick={e=>handleCheck(e)} className="mostrar-menu"/> */}
+          {/* <label>Search</label> */}
+
+
+
+
+          <div className='form_box'>
+
+            <DatePicker className='form_input_date2' name="date" selected={stateDate} withPortal locale="es" onChange={(e) =>onChangeDate(e)}/>
+            <label className='form_label_date2' for="textDate">Fecha</label>
+            <div className='contButton'>
+              <button className='btnDate' onClick={()=>handleDate(stateDate)}>Filtrar</button>
+              <button className='btnDate' onClick={(e)=>handleDeleteFilterDate(e)}>x</button>
+            </div>
+            
+          </div>
+
+          <div className='form_box2'>
+
+            <select className='form_input2' onChange={(e)=>handleAge(e)}>
+
+              <option value={"false"}>Todas las edades</option>
+              <option value={"mayores"}>Mayores de edad</option>
+              <option value={"atp"}>Apto para menores</option>
+            </select>
+            <label className='form_label2'>Edad</label>
+          </div>
+
+          {/*<div>
+          <input  type={"text"} name={"location"} placeholder={`Location...`} value={stateLocation} onChange={(e)=>handleChangeLocation(e)} />
+          <button onClick={handleSubmitLocation}>Filtrar</button>
+          <button onClick={deleteFilterLocation}>x</button>
+          </div>*/}
+
+          {/*<div>
+          <input  type={"text"} name={"min"} placeholder={`min`} value={statePrice.min} onChange={(e)=>handleChangePrice(e)} />
+          <input  type={"text"} name={"max"} placeholder={`max`} value={statePrice.max} onChange={(e)=>handleChangePrice(e)} />
+          <button onClick={handleSubmitPrice}>Filtrar</button>
+          <button onClick={deleteFilterPrice}>x</button>
+          </div>*/}
+
+          <div className='form_box2'>
+            <select className='form_input2' onChange={(e)=>handleFilterPrice(e)}>
+
+              <option value="Todo"  >Price</option>
+
+                  {price.map((e) =>
+
+                    <option key={e} value={e} >{e}</option>
+                  )}
+
+            </select>
+            <label className='form_label2'>Precio</label>
+          </div>
+
+          <div className='form_box2'>
+            <select className='form_input2' onChange={(e)=>handleFilterTypeEvent(e)}>
+
+              <option value="Todo"  >Type-Events</option>
+
+                  {genres.map((e) =>
+
+                    <option key={e} value={e} >{e}</option>
+                  )}
+
+            </select>
+            <label className='form_label2'>Tipo de Evento</label>
+          </div>
+
+          <div className='form_box2'>
+                <select className='form_input2' onChange={(e)=> handleSort(e)}>
+                    <option value={"notSort"}>Not Sort</option>
+                    <option value={"A-Z"}>A-Z</option>
+                    <option value={"Z-A"}>Z-A</option> 
+                </select>
+                <label className='form_label2'>Orden</label>
+          </div>
+
+        </div>
+          
+
+
         </div>
 
-        {/*<div>
-        <input  type={"text"} name={"location"} placeholder={`Location...`} value={stateLocation} onChange={(e)=>handleChangeLocation(e)} />
-        <button onClick={handleSubmitLocation}>Filtrar</button>
-        <button onClick={deleteFilterLocation}>x</button>
-        </div>*/}
 
-        {/*<div>
-        <input  type={"text"} name={"min"} placeholder={`min`} value={statePrice.min} onChange={(e)=>handleChangePrice(e)} />
-        <input  type={"text"} name={"max"} placeholder={`max`} value={statePrice.max} onChange={(e)=>handleChangePrice(e)} />
-        <button onClick={handleSubmitPrice}>Filtrar</button>
-        <button onClick={deleteFilterPrice}>x</button>
-        </div>*/}
+    </div>
 
-        <div>
-          <select onChange={(e)=>handleFilterPrice(e)}>
-
-            <option value="Todo"  >Price</option>
-
-                {price.map((e) =>
-
-                  <option key={e} value={e} >{e}</option>
-                )}
-
-          </select>
-        </div>
-
-       <div>
-          <select onChange={(e)=>handleFilterTypeEvent(e)}>
-
-            <option value="Todo"  >Type-Events</option>
-
-                {genres.map((e) =>
-
-                  <option key={e} value={e} >{e}</option>
-                )}
-
-          </select>
-        </div>
-
-        <div>
-              <select onChange={(e)=> handleSort(e)}>
-                  <option value={"notSort"}>Not Sort</option>
-                  <option value={"A-Z"}>A-Z</option>
-                  <option value={"Z-A"}>Z-A</option> 
-              </select>
-        </div>
-    </MenuFilter>
+    
+    
   )
 }
