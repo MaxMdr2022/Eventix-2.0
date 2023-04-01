@@ -73,3 +73,16 @@
 
     /* right: -200px; */
 }
+
+/*---------------------------------------*/
+
+.contBNB{
+
+    display: flex;
+    align-items: baseline;
+
+    position: relative;
+    /* left: 30px; */
+
+    font-size: 10px;
+}
