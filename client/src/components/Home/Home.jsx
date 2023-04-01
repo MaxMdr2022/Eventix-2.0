@@ -57,11 +57,11 @@ function Home() {
     <div>
       <Navbar />
       <Carrousel/>
-      <div className="grid">
-      <H1>EVENTS</H1>
+      {/*<div className="grid">*/}
+      <H1>EVENTOS</H1>
       <Filters/>
-        <Grid />
-      </div>
+      <Grid />
+      {/*</div>*/}
     </div>
   );
   
