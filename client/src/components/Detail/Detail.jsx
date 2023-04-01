@@ -49,6 +49,7 @@ export default function Detail() {
 
   function submitData (e){
 
+    console.log("eeeeee", e)
     if(e.precio === "Entrada Liberada"){
 
       return history.push("/");
@@ -122,56 +123,73 @@ export default function Detail() {
   
   return (
     <div>
+
       <Navbar/>
-      <DetailContainer>
-      
-      <DetailEvent>
-        <div>
-          <img src={eventShowed.length ? eventShowed[0].image : null} alt= ""/>
-        </div>
-        <div>
+
+
+      <div className='contGrid209'>
+        
+       
+
+
+        <div className='eventD'>
+
           <h1>{eventShowed.length ? eventShowed[0].name : null}</h1> 
+          <div className='imgD'>
+            <img  src={eventShowed.length ? eventShowed[0].image : null} alt= ""/>
+          </div>
           <Rating readonly={true} initialValue={eventShowed.length ? Math.round(eventShowed[0].rating) : null}/>
-          <p>Location: {eventShowed.length ? eventShowed[0].location : null}</p>
+          <p>Ubicacion: {eventShowed.length ? eventShowed[0].location : null}</p>
           <div>
-            <p>Description event: {eventShowed[0]?.description}</p>
+            <p> {eventShowed[0]?.description}</p>
           </div>
+
         </div>
-        <div>
-            {isAuthenticated ? <h1>Buy your Ticket</h1> : <h1>Inicia sesion para comprar una entrada</h1>}
-            {
+
+
+        <div className='ticketD'>
+
+          {isAuthenticated ? <h1>Compra tu entrada</h1> : <h1>Inicia sesión para comprar una entrada</h1>}
+            
+          {
               
-          eventShowed[0] ? eventShowed[0].price.map((e, i) => 
-            <div key={i}>
-              
-              <p>Type Ticket: {e.tipoDeTicket}</p>
-              {e.precio === "Entrada Liberada" ? <p>Price: Free</p> :<p>Price: ${Number(e.precio) * cantidad} | U$D {(Number(e.precio) * cantidad / 400).toPrecision(3)}</p>}
-              {isAuthenticated ? <button className='btn1' onClick={()=>submitData(e)}>comprar</button> : null}
-              <button className='btn1' hidden={cantidad > 1 ? false : true} onClick={()=>buttonRest()}>-</button>
-              <button className='btn1' onClick={()=>buttonSum()}><FcPlus/></button>
-              {cantidad > 1 ? <span> {cantidad} Tickets</span>: <span> {cantidad} Ticket</span>}
-              
-            </div>
-          ) : 
-          <p>Tickets Sold Out  :´(</p>
-         }
-          </div>
-        </DetailEvent>
-        <BuyEvent>
+            eventShowed[0] ? eventShowed[0].price.map((e, i) => 
+              <div className='eventShowed1' key={i}>
+                
+                <p>Tipo de Ticket: {e.tipoDeTicket}</p>
+                {e.precio === "Entrada Liberada" ? <p>Precio: Gratis</p> :<p>Precio: ${Number(e.precio) * cantidad} | U$D {(Number(e.precio) * cantidad / 400).toPrecision(3)}</p>}
+                
+                <div className='contBotonesP'>
+
+                {isAuthenticated ? <button className='btn1' onClick={()=>submitData(e)}>comprar</button>  : null}
+                  <input className='btnPrice' type={"button"} hidden={cantidad > 1 ? false : true} onClick={()=>buttonRest()} value={"-"}/>
+                  <input className='btnPrice' type={"button"} onClick={()=>buttonSum()} value={"+"}/>
+                  {cantidad > 1 ? <span> {cantidad} Tickets</span>: <span> {cantidad} Ticket</span>}
+                </div>
+              </div>
+            ) : 
+            <p>Tickets Sold Out  :´(</p>
+          }
+          
+
+        </div>
+
+
+
+        <div className='mapD'>
           <Map direction={eventShowed.length ? eventShowed[0].location : null}/>
+        </div>
+          
+        <div className='reviewD'>
+
           {isAuthenticated ? <Review updateComponent={updateComponent} event={eventShowed.length ? eventShowed[0].name : null}/> : null}
-        </BuyEvent>
-         
+        </div>
         
 
-      
-      
+      </div>
 
-      
       <Reviews reviews={eventShowed.length ? eventShowed[0].reviews : null}/>
       
-      
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -181,19 +199,19 @@ export default function Detail() {
 
           <h2>Eventix</h2>
           <h3>{eventShowed[0]?.name}</h3>
-          <p>Type Ticket: {info.tipoTicket}</p>
+          <p>Tipo de Ticket: {info.tipoTicket}</p>
           {cantidad > 1 ? <span> {cantidad} Tickets</span>: <span> {cantidad} Ticket</span>}
           <p>ARS$ {info.precio * cantidad}</p>
           <p>US$ {Number(info.precio) * cantidad / 400}</p>
-          <p>You will be redirected to the Coinbase payment gateway</p>
+          <p>Usted sera redirigido a la pasarela de pago de Coinbase</p>
 
           { 
             index? <div>
 
-            <a href={`${url}`}><button>Buy Ticket</button></a>
-            <button onClick={closeModal}>cancel</button>
+            <a href={`${url}`}><button>Comprar Entrada</button></a>
+            <button onClick={closeModal}>Cancelar</button>
     
-            </div> : <p>Generating payment link</p>
+            </div> : <p>Generando Link de Pago</p>
 
           }
 
@@ -201,15 +219,8 @@ export default function Detail() {
           
       </Modal>   
 
-
-      {/* 
-      <div>
-        <Link to={'/event/sale'}><button>BUY TICKETS</button></Link>
-      </div> 
-      */}
-
-    </DetailContainer>
     </div>
     
   )
 };
+{/* <input className='btnPrice' type={"button"} name={"btnCompra"} onClick={(e)=>submitData(e)} value={"Comprar"}/> */}
