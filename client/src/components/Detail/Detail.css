@@ -1,18 +1,125 @@
+
+
 .modal {
 
     color: rgb(22, 21, 21);
     text-align: center;
     
+    
 }
 
 .btn1 {
-    background-color: black;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 10px;
-    border: none;
+    border-radius: 5px;
+    border: solid 2px rgb(86, 62, 132);
+    color:  rgb(101, 8, 143);
+    transition: .5s;
 }
 
 .btn1:hover {
-    background-color: rgb(235, 7, 7);
+    color: rgb(38, 183, 223);
+    border: solid 2px rgb(32, 170, 208);
+    transition: .5s;
+}
+
+/*------------------------------------------------------------------*/
+
+.contGrid209{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+
+}
+
+.eventD{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.ticketD{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.ticketD h1{
+
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.eventShowed1{
+
+    padding: 10px;
+}
+
+.eventShowed1 p{
+
+    display: flex;
+    justify-content: center;
+}
+
+.mapD{
+
+    display: flex;
+    justify-content: center;
+}
+
+.reviewD{
+
+    display: flex;
+    justify-content: center;
+}
+
+/*----------------------------------------------------*/
+
+
+.btnPrice{
+
+    display: block;
+    /* margin-bottom: 2rem; */
+    padding: .3rem 1rem;
+    border-radius: 5px;
+    border: solid 2px rgb(86, 62, 132);
+    color:  rgb(101, 8, 143);
+    transition: .5s;
+    
+}
+
+.btnPrice:hover{
+
+    color: rgb(38, 183, 223);
+    border: solid 2px rgb(32, 170, 208);
+    transition: .5s;
+}
+
+.contBotonesP{
+
+    display: flex;
+    gap: 20px;
+    
+    justify-content: center;
+}
+
+/*-------------------------------------------------------------------*/
+
+.imgD{
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.imgD img{
+
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
 }
