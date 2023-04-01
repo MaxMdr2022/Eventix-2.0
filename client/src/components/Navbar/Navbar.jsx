@@ -42,14 +42,19 @@ export default function Navbar() {
           <a href="/">
             <H1>Eventix</H1>
           </a>
-          <a href="/aboutUs">
-            <H3>About us</H3>
-          </a>
           
           {/*!isAuthenticated ? null : !user.user?.isBanned ? <a style={{cursor : 'pointer'}} onClick={openIt}>Create Events</a> : null*/}
-          {!isAuthenticated ? null : !user.user?.isBanned ? <a href="/createevents">Crear evento</a> : null}
-          {!isAuthenticated ? null : !user.user?.isBanned ? <a href="/perfil">Profile</a> : null}
-          {!isAuthenticated ? null : user.user?.isAdmin ? <a href="/admindashboard">Panel Administrador</a>: null}
+          <div className="contBNB">
+
+            <a href="/aboutUs">
+              <H3>Sobre Nosotros</H3>
+            </a>
+
+            {!isAuthenticated ? null : !user.user?.isBanned ? <a href="/createevents"><H3>Crear evento</H3></a> : null}
+            {!isAuthenticated ? null : !user.user?.isBanned ? <a href="/perfil"><H3>Perfil</H3></a> : null}
+            {!isAuthenticated ? null : user.user?.isAdmin ? <a href="/admindashboard"><H3>Panel Administrador</H3></a>: null}
+          </div>
+            
         </Leftbar>
 
         <Rightbar>
