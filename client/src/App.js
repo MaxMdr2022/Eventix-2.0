@@ -20,7 +20,7 @@ import CrearEvento from './components/CrearEvento/CrearEvento';
 import ScrollButton from './components/ScrollButton/ScrollButton';
 import axios from "axios";
 
-axios.defaults.baseURL ="http://localhost:3001/" //";//http://localhost:3001/ "https://eventix-production.up.railway.app/"
+axios.defaults.baseURL ="https://eventix-20-production.up.railway.app/" //";//http://localhost:3001/ "https://eventix-production.up.railway.app/"
 
 function App() {
 
