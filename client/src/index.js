@@ -11,7 +11,7 @@ const auth0Domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const auth0ClientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 // console.log(process.env.REACT_APP_AUTH0_DOMAIN, process.env.REACT_APP_AUTH0_CLIENT_ID)
-
+console.log("windowlocation origin",window.location.origin )
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
