@@ -38,7 +38,7 @@ export default function Review({event, updateComponent}) {
       }
     
     const onSubmit = (data) => {
-        e.preventDefault();
+        
         console.log("createReview component....",data)
         dispatch(createReview(data))
         reset()
