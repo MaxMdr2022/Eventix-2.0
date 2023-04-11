@@ -13,7 +13,7 @@ const auth0ClientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 // console.log(process.env.REACT_APP_AUTH0_DOMAIN, process.env.REACT_APP_AUTH0_CLIENT_ID)
 // console.log("windowlocation origin",window.location.origin ) //https://eventix-2-0.vercel.app
 
-// cacheLocation="localstorage"
+// 
 // 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,7 +23,7 @@ ReactDOM.render(
         clientId={auth0ClientId}
         redirectUri={window.location.origin}
         useRefreshTokens={true}
-        
+        cacheLocation="localstorage"
       >
         <BrowserRouter>
           <App />
