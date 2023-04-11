@@ -29,6 +29,7 @@ function App() {
 
   // console.log("userr- app.js: ",user)
 
+  console.log("isAuthenticated", isAuthenticated)
   useEffect(() => {
     const createUserFromDispatch = () => {
       if (isAuthenticated) {
