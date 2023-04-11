@@ -313,6 +313,7 @@ export const createReview = (data) => {
     try {
       
       const event = await axios.post(`review`, data);
+      console.log("review", event)
 
       dispatch({
 

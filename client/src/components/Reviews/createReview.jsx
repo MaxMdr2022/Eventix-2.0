@@ -38,7 +38,7 @@ export default function Review({event, updateComponent}) {
       }
     
     const onSubmit = (data) => {
-        console.log(data)
+        console.log("createReview component....",data)
         dispatch(createReview(data))
         reset()
         setStars(0)
