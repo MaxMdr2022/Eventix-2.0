@@ -46,8 +46,26 @@ const filterByDate = async(day, month, year, state) =>{
             date: e.date.split(" "),
             location: e.location,
             price: e.price, 
-            image: e.image
+            image: e.image,
+            typeEvent:e.typeEvent
         }
+
+        /*
+            data value: 
+                -id: 'a890ccab-8f5d-488d-bdf0-0a599381b4e0',
+                -name: 'Cachengue en el Bosque de Pehuajo (+18)',
+                -date: 'Jueves 12 de Enero 2023 - 19:00 hrs.',
+                -image: 'https://imagenes.passline.com/eventos/cachengue-en-el-bosque-de-pehuajo-147201-min.jpg';,
+                imageBanner: null,
+               - location: 'Pastor Ibañez y Ceferino Namuncura.',
+               - price: [Array],
+                description: 'Yerar Bosque Pastor Ibañez y Ceferino Namuncura.',
+                typeEvent: [Object],
+                rating: null,
+                isDelete: false,
+                createInDB: true,
+                userId: null
+        */
     
     });
     
@@ -66,13 +84,14 @@ const filterByDate = async(day, month, year, state) =>{
                     date: e.date.join(" "),
                     location: e.location,
                     price: e.price, 
-                    image: e.image
+                    image: e.image,
+                    typeEvent:e.typeEvent
                 }
 
             });
 
-            // return eventsDate;
-            return eventsFilterDate
+            return eventsDate;
+            // return eventsFilterDate
         };
            
         return "There is no event on that date";
