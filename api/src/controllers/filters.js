@@ -71,7 +71,8 @@ const filterByDate = async(day, month, year, state) =>{
 
             });
 
-            return eventsDate;
+            // return eventsDate;
+            return eventsFilterDate
         };
            
         return "There is no event on that date";
