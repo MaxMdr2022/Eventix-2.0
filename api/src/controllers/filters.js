@@ -182,10 +182,10 @@ const filterByPrice = async(price, state) =>{ //price tiene que ser un [min, max
 
 const filterByTypeEvent = async(typeEvent, state) => {
 
-    console.log("genero",typeEvent);
+    // console.log("genero",typeEvent);
     const filterGenre = state.filter(e => e.typeEvent?.genre === typeEvent);
 
-    console.log("genero filtrado",filterGenre);
+    // console.log("genero filtrado",filterGenre);
     if(!filterGenre.length > 0){
 
         return "There are no tickets in that price range."

@@ -92,7 +92,7 @@ const storeFiltered = async(body)=>{
 
         state = state.length > 0 ? state : await Event.findAll();
 
-        console.log("estado filtro TE", state)
+        // console.log("estado filtro TE", state)
 
         state = await filterByTypeEvent(typeEvent, state);
 
