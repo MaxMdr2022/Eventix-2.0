@@ -73,7 +73,7 @@ export default function UserDashBoard (){
 
         dispatch(userUpdate(id, {isAdmin: false}));
    
-        // window.location.reload();
+        window.location.href=window.location.href;
         alert("Usuario sin Permisos de Administrador");
     };
 
@@ -82,7 +82,7 @@ export default function UserDashBoard (){
         e.preventDefault();
 
         dispatch(userUpdate(id, {isBanned: true}));
-        // window.location.reload();
+        window.location.reload();
         alert("Usuario Baneado");
     };
 
@@ -92,7 +92,7 @@ export default function UserDashBoard (){
 
         dispatch(userUpdate(id, {isBanned: false}));
    
-        // window.location.reload();
+        history.go(0)
         alert("Usuario desbaneado");
     };
 
