@@ -63,8 +63,8 @@ export default function UserDashBoard (){
         e.preventDefault();
 
         dispatch(userUpdate(id, {isAdmin: true}));
-        // window.location.reload();
-        alert("Usuario con Permisos de Administrador");
+        window.location.reload();
+        // alert("Usuario con Permisos de Administrador");
     };
 
     const handleRemoveAdmin= (e)=> {
@@ -74,7 +74,7 @@ export default function UserDashBoard (){
         dispatch(userUpdate(id, {isAdmin: false}));
    
         window.location.href=window.location.href;
-        alert("Usuario sin Permisos de Administrador");
+        // alert("Usuario sin Permisos de Administrador");
     };
 
     const handleIsBanned = (e)=> {
@@ -83,7 +83,7 @@ export default function UserDashBoard (){
 
         dispatch(userUpdate(id, {isBanned: true}));
         window.location.reload();
-        alert("Usuario Baneado");
+        // alert("Usuario Baneado");
     };
 
     const handleRemoveBanned = (e)=> {
@@ -93,7 +93,7 @@ export default function UserDashBoard (){
         dispatch(userUpdate(id, {isBanned: false}));
    
         history.go(0)
-        alert("Usuario desbaneado");
+        // alert("Usuario desbaneado");
     };
 
     const cancel = (e) => {
