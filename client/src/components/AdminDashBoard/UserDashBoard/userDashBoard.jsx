@@ -63,7 +63,7 @@ export default function UserDashBoard (){
         e.preventDefault();
 
         dispatch(userUpdate(id, {isAdmin: true}));
-        window.location.reload();
+        // window.location.reload();
     };
 
     const handleRemoveAdmin= (e)=> {
@@ -72,7 +72,7 @@ export default function UserDashBoard (){
 
         dispatch(userUpdate(id, {isAdmin: false}));
    
-        window.location.reload();
+        // window.location.reload();
     };
 
     const handleIsBanned = (e)=> {
@@ -80,7 +80,7 @@ export default function UserDashBoard (){
         e.preventDefault();
 
         dispatch(userUpdate(id, {isBanned: true}));
-        window.location.reload();
+        // window.location.reload();
     };
 
     const handleRemoveBanned = (e)=> {
@@ -89,7 +89,7 @@ export default function UserDashBoard (){
 
         dispatch(userUpdate(id, {isBanned: false}));
    
-        window.location.reload();
+        // window.location.reload();
     };
 
     const cancel = (e) => {
