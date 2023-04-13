@@ -113,7 +113,7 @@ export default function Setings (){
                                     </div> 
                                 </div>
 
-                                <form >
+                                <form autocomplete="off" >
 
                                     <div className="cont654">
 
