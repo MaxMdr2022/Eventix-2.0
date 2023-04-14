@@ -156,8 +156,8 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            console.log("id ticket pafo fallido: ", event.customer_id_ticket)
-            console.log("id user pago fall: ", event.customer_id)
+            console.log("id ticket pafo fallido: ", event.data.metadata.customer_id_ticket)
+            console.log("id user pago fall: ", event.data.metadata.customer_id)
             // for(let i=0; i<event.customer_id_ticket.length; i++){
 
             //     await Ticket.destroy ({ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}})
