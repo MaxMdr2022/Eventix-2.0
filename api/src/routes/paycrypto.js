@@ -113,7 +113,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
         event = Webhook.verifyEventBody(rawBody, signature, webhookSecret);  // esta clase recibe por el metodo verifyEventBody: el rewBody (la data que envia coinbase) asignatur y webhooksecret. Es para validar si lo que me envia es valido  
 
         //comprobamos el tipo de evento, los estados del pago que manda coinbase
-        console.log("event: ", event)
+        // console.log("event: ", event)
 
         if(event.type === "charge:confirmed"){  // se confirmo el pago
 
@@ -156,12 +156,8 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            console.log("id ticket pafo fallido: ",  event.data.metadata.customer_id_ticket)
-
-            let arr = []
-            arr.push(event.data.metadata.customer_id_ticket)
-            console.log("id ticket pafo fallido length: ", event.data.metadata.customer_id_ticket.length)
-            console.log("arr: ", arr)
+            console.log("id ticket pafo fallido: ", JSON.parse( event.data.metadata.customer_id_ticket).length)
+            
             console.log("id user pago fall: ", event.data.metadata.customer_id)
 
             // for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
