@@ -124,7 +124,7 @@ export default function Detail() {
 
   function redirect(){
 
-    window.location.href = url;
+    window.open(url, '_blank');
   }
   return (
     <div>
