@@ -58,7 +58,7 @@ route.post("/create-charge", async(req,res)=>{   // ruta de pago http://localhos
         metadata: {                        // info del comprador. para guardar en la base de datos.
             customer_id: id_user,
             // customer_name: "Maxi Meder",
-            customer_id_ticket: [ticketId]  //guardo el id de cada ticket
+            customer_id_ticket: ticketId  //guardo el id de cada ticket
         },
         redirect_url: `${DOMAIN}`, // ${DOMAIN}/perfilusuario/pago   cuando el pago se finaliza le sale un boton para continuar. Esa url es donde lo va a redirigir el boton. NOTA: tiene que ser un dominio https. Si no coinbase no redirecciona. 
         cancel_url: `${DOMAIN}`,  // cuando se calcele el pago, va a redireccionar a esta ruta.
@@ -156,7 +156,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            console.log("id ticket pafo fallido: ", typeof event.data.metadata.customer_id_ticket)
+            console.log("id ticket pafo fallido: ",  event.data.metadata.customer_id_ticket)
 
             let arr = []
             arr.push(event.data.metadata.customer_id_ticket)
