@@ -63,7 +63,7 @@ route.post("/create-charge", async(req,res)=>{   // ruta de pago http://localhos
         redirect_url: `${DOMAIN}`, // ${DOMAIN}/perfilusuario/pago   cuando el pago se finaliza le sale un boton para continuar. Esa url es donde lo va a redirigir el boton. NOTA: tiene que ser un dominio https. Si no coinbase no redirecciona. 
         cancel_url: `${DOMAIN}`,  // cuando se calcele el pago, va a redireccionar a esta ruta.
     };
-
+    console.log("dominio:", DOMAIN)
     const charge = await Charge.create(chargeData);  // le pasamos los datos para que cree la orden de pago. charge es un json con toda la info. donde vamos a tomar el parametro hosted_url que contiene la url que nos manda a la pasarela de pago
     
     // res.send(charge); //  podemos ver el json con todos los parametros entrando en http://localhost:3001/paycrypto/create-charge
@@ -154,6 +154,8 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
+            console.log("id ticket pafo fallido: ", event.customer_id_ticket)
+            console.log("id user pago fall: ", event.customer_id)
             // for(let i=0; i<event.customer_id_ticket.length; i++){
 
             //     await Ticket.destroy ({ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}})
