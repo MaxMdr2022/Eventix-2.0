@@ -19,7 +19,7 @@ route.post("/create-charge", async(req,res)=>{   // ruta de pago http://localhos
 
     const {total,name,description, typeTicket, price, cantidad, id_user} = await req.body;
     
-    
+    console.log("data ::: total: ", total, " name: ", name, " descr:", description, " TTIC: ", typeTicket, " price: ", price, " can: ", cantidad, " useid:", id_user )
     // creo el ticket y lo guardo en la BD ---------------------------
 
     let ticketId = [];
