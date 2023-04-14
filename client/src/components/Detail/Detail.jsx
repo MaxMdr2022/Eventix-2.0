@@ -125,6 +125,7 @@ export default function Detail() {
   function redirect(){
 
     window.open(url, '_blank');
+    closeModal()
   }
   return (
     <div>

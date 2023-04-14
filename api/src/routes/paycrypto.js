@@ -126,10 +126,11 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
 
             // const usersIds = tickets.map(e => e.id)
 
+            const arr = JSON.parse(event.data.metadata.customer_id_ticket)
 
-            for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
+            for(let i=0; i<arr.length; i++){
 
-                await Ticket.update({paymentMade: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:event.data.metadata.customer_id_ticket[i]}]}});
+                await Ticket.update({paymentMade: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:arr[i]}]}});
             };
         
             //PARA HACER LA PRUEBA BUSCAR POR EL ID DEL USER Y MODIFICAR EN TRUE 
@@ -139,10 +140,11 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
 
         if(event.type === "charge:pending"){
 
+            const arr = JSON.parse(event.data.metadata.customer_id_ticket)
 
-            for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
+            for(let i=0; i<arr.length; i++){
 
-                await Ticket.update({pendingPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:event.data.metadata.customer_id_ticket[i]}]}});
+                await Ticket.update({pendingPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:arr[i]}]}});
             };
 
             // await Ticket.update({pendingPayment: true},{ where: {usersId: 01}}) // <---------prueba
@@ -156,14 +158,16 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            console.log("id ticket pafo fallido: ", JSON.parse( event.data.metadata.customer_id_ticket).length)
+            // console.log("id ticket pafo fallido: ", JSON.parse( event.data.metadata.customer_id_ticket).length)
             
-            console.log("id user pago fall: ", event.data.metadata.customer_id)
+            // console.log("id user pago fall: ", event.data.metadata.customer_id)
 
-            // for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
+            const arr = JSON.parse(event.data.metadata.customer_id_ticket)
 
-            //     await Ticket.update({cancelPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:event.data.metadata.customer_id_ticket[i]}]}});
-            // }
+            for(let i=0; i<arr.length; i++){
+
+                await Ticket.update({cancelPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:arr[i]}]}});
+            }
 
             //    userId: event.metadata.customer_id
 
