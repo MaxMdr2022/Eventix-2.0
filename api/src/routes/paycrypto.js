@@ -158,7 +158,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            // console.log("id ticket pafo fallido: ", JSON.parse( event.data.metadata.customer_id_ticket).length)
+            // console.log("id ticket pafo fallido: ", JSON.parse( event.data.metadata.customer_id_ticket))
             
             // console.log("id user pago fall: ", event.data.metadata.customer_id)
 
@@ -166,7 +166,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
 
             for(let i=0; i<arr.length; i++){
 
-                await Ticket.update({cancelPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:arr[i]}]}});
+                await Ticket.update({cancelPayment: true},{ where: {invoiceTicketId:arr[i]}});
             }
 
             //    userId: event.metadata.customer_id
