@@ -19,6 +19,8 @@ export default function Detail() {
 
   const eventShowed = useSelector(state => state.events);
   const url = useSelector( s => s.payCryptoURL);
+
+
   const userId = useSelector(s => s.user);
   // console.log("userid detaill", userId)
   const { isAuthenticated } = useAuth0();
@@ -120,7 +122,10 @@ export default function Detail() {
    
   }, 5000)};
 
-  
+  function redirect(){
+
+    window.location.href = url;
+  }
   return (
     <div>
 
@@ -208,7 +213,7 @@ export default function Detail() {
           { 
             index? <div>
 
-            <a href={`${url}`}><button>Comprar Entrada</button></a>
+            <button onClick={redirect}>Comprar Entrada</button>
             <button onClick={closeModal}>Cancelar</button>
     
             </div> : <p>Generando Link de Pago</p>
