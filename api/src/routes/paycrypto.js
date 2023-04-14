@@ -113,7 +113,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
         event = Webhook.verifyEventBody(rawBody, signature, webhookSecret);  // esta clase recibe por el metodo verifyEventBody: el rewBody (la data que envia coinbase) asignatur y webhooksecret. Es para validar si lo que me envia es valido  
         // console.log("event",event);
         //comprobamos el tipo de evento, los estados del pago que manda coinbase
-        console.log("event: ", event)
+        // console.log("event: ", event)
 
         if(event.type === "charge:confirmed"){  // se confirmo el pago
 
@@ -127,9 +127,9 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             // const usersIds = tickets.map(e => e.id)
 
 
-            for(let i=0; i<event.customer_id_ticket.length; i++){
+            for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
 
-                await Ticket.update({paymentMade: true},{ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}});
+                await Ticket.update({paymentMade: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:event.data.metadata.customer_id_ticket[i]}]}});
             };
         
             //PARA HACER LA PRUEBA BUSCAR POR EL ID DEL USER Y MODIFICAR EN TRUE 
@@ -140,9 +140,9 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
         if(event.type === "charge:pending"){
 
 
-            for(let i=0; i<event.customer_id_ticket.length; i++){
+            for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
 
-                await Ticket.update({pendingPayment: true},{ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}});
+                await Ticket.update({pendingPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:event.data.metadata.customer_id_ticket[i]}]}});
             };
 
             // await Ticket.update({pendingPayment: true},{ where: {usersId: 01}}) // <---------prueba
@@ -158,10 +158,11 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
 
             console.log("id ticket pafo fallido: ", event.data.metadata.customer_id_ticket)
             console.log("id user pago fall: ", event.data.metadata.customer_id)
-            // for(let i=0; i<event.customer_id_ticket.length; i++){
 
-            //     await Ticket.destroy ({ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}})
-            // }
+            for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
+
+                await Ticket.update({cancelPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:event.data.metadata.customer_id_ticket[i]}]}});
+            }
 
             //    userId: event.metadata.customer_id
 
