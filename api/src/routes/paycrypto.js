@@ -156,8 +156,12 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            console.log("id ticket pafo fallido: ", event.data.metadata.customer_id_ticket)
+            console.log("id ticket pafo fallido: ", typeof event.data.metadata.customer_id_ticket)
+
+            let arr = []
+            arr.push(event.data.metadata.customer_id_ticket)
             console.log("id ticket pafo fallido length: ", event.data.metadata.customer_id_ticket.length)
+            console.log("arr: ", arr)
             console.log("id user pago fall: ", event.data.metadata.customer_id)
 
             // for(let i=0; i<event.data.metadata.customer_id_ticket.length; i++){
