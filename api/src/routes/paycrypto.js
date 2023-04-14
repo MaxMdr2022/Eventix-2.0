@@ -41,7 +41,7 @@ route.post("/create-charge", async(req,res)=>{   // ruta de pago http://localhos
         })
     };
     
-    // console.log("tikcetid", ticketId);  
+    console.log("tikcetid", ticketId);  
     
     //------------------------------------------------------------------------------------------------------
 
@@ -154,10 +154,10 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
             console.log("pago fallido");
      
 
-            for(let i=0; i<event.customer_id_ticket.length; i++){
+            // for(let i=0; i<event.customer_id_ticket.length; i++){
 
-                await Ticket.destroy ({ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}})
-            }
+            //     await Ticket.destroy ({ where: {[Op.and]: [{userId :event.customer_id },{id:event.customer_id_ticket[i]}]}})
+            // }
 
             //    userId: event.metadata.customer_id
 
