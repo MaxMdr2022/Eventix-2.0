@@ -9,6 +9,8 @@ export default function TicketDashBoard ({userId}) {
     const dispatch = useDispatch();
     const ticket = useSelector(s => s.dataPago);
 
+    console.log("userid ", userId)
+
     useEffect(()=> {
 
         if(userId !== null){
