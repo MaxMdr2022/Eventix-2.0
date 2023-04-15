@@ -1,4 +1,4 @@
-const {Ticket} = require("../db");
+const {Ticket, User} = require("../db");
 
 
 const getTickets = async(userId) =>{

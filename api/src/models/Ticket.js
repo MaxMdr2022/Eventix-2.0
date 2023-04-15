@@ -20,9 +20,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // usersId: {
-    //   type: DataTypes.INTEGER
-    // },
+    userId: {
+      type: DataTypes.INTEGER
+    },
     paymentMade: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,

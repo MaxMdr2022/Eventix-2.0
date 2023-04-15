@@ -34,7 +34,7 @@ route.post("/create-charge", async(req,res)=>{   // ruta de pago http://localhos
             event: name,
             price: price,
             typeTicket: typeTicket,
-            // usersId: 01,
+            userId: id_user,
             paymentMade:false,
             pendingPayment:false,
             invoiceTicketId: uuid
