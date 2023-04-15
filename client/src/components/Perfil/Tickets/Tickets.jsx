@@ -30,7 +30,7 @@ export default function Tickets (){
     },[dispatch, userId]);
 
     
-    const ticketsPurchased = ticket.filter(e => e.ticket.pendingPayment === true || e.ticket.paymentMade === true )
+    const ticketsPurchased = ticket.filter(e => e.ticket.cancelPayment === true || e.ticket.paymentMade === true ) //pendingPayment
 
     console.log("infoticket", ticketsPurchased);
 
@@ -100,7 +100,7 @@ export default function Tickets (){
 
                                         <p>Tipo de ticket: {e.ticket.typeTicket}</p>
 
-                                        { e.ticket.paymentMade === true ? <img src={e.QR} alt='' /> : <p>Pago pendiente...</p>}
+                                        { e.ticket.cancelPayment === true ? <img src={e.QR} alt='' /> : <p>Pago pendiente...</p> /*paymentMade */}
 
                                     </div>
                                 ): 
