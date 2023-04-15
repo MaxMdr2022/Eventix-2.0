@@ -17,7 +17,7 @@ export default function UserDashBoard (){
     const users = useSelector(state => state.users);
     const user = useSelector(s => s.user);
     const { id } = useParams();
-
+    console.log("id", id)
     const usuario = users?.filter(e => e.id === id);
 
     const [userEdit, setUserEdit] = useState({
@@ -234,7 +234,7 @@ export default function UserDashBoard (){
             }
 
             <div>
-                <TicketDashBoard idUser={id}/>
+                <TicketDashBoard userId={id}/>
 
             </div>
 
