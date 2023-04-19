@@ -43,7 +43,7 @@ route.get("/notification/:infoPago", async(req,res)=>{
         
         for(let i=0; i<ticket.length; i++){ 
 
-            if(ticket[i].emailSent === false && ticket[i].cancelPayment === true){   // paymentMade <--------------------s
+            if(ticket[i].emailSent === false && ticket[i].paymentMade === true){   //  <--------------------s
                 
                 const qrGenerate = async text => {
 
