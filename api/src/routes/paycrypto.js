@@ -130,7 +130,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
 
             for(let i=0; i<arr.length; i++){
 
-                await Ticket.update({paymentMade: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:arr[i]}]}});
+                await Ticket.update({paymentMade: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{invoiceTicketId:arr[i]}]}});
             };
         
             //PARA HACER LA PRUEBA BUSCAR POR EL ID DEL USER Y MODIFICAR EN TRUE 
@@ -144,7 +144,7 @@ route.post("/payment-handler", async(req,res)=>{   /// trae los estados del pago
 
             for(let i=0; i<arr.length; i++){
 
-                await Ticket.update({pendingPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{id:arr[i]}]}});
+                await Ticket.update({pendingPayment: true},{ where: {[Op.and]: [{userId :event.data.metadata.customer_id },{invoiceTicketId:arr[i]}]}});
             };
 
             // await Ticket.update({pendingPayment: true},{ where: {usersId: 01}}) // <---------prueba
